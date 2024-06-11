@@ -14,7 +14,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         GetComponent<LifeHostHandler>().OnRespawn += () => TeleportToPosition(transform.position);
     }
 
-    public override void Move(Vector3 direction)
+    /*public override void Move(Vector3 direction)
     {
         var deltaTime = Runner.DeltaTime;
         var previousPos = transform.position;
@@ -50,5 +50,5 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         IsGrounded = Controller.isGrounded;
 
         _mecanimAnim.Animator.SetFloat("MovementValue", Velocity.sqrMagnitude);
-    }
+    }*/
 }

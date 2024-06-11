@@ -38,7 +38,7 @@ public class PlayerHostController : NetworkBehaviour
     {
         if (!GetInput(out _networkInputData)) return;
 
-        _direction = Vector3.forward * _networkInputData.xMovement;
+        _direction = new Vector3(_networkInputData.xMovement, 0, _networkInputData.yMovement);
         _playerHostMovement.Move(_direction);
 
         if(_networkInputData.isJumpPressed)

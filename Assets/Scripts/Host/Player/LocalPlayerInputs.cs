@@ -18,9 +18,10 @@ public class LocalPlayerInputs : MonoBehaviour
     void Update()
     {
         _inputData.xMovement = Input.GetAxis("Horizontal");
+        _inputData.yMovement = Input.GetAxis("Vertical");
 
-        if(Input.GetKeyDown(KeyCode.W)) _isJumpPressed = true;
-        if(Input.GetKeyDown(KeyCode.Space)) _isFirePressed = true;
+        if (Input.GetKeyDown(KeyCode.Space)) _isJumpPressed = true;
+        if(Input.GetKeyDown(KeyCode.R)) _isFirePressed = true;
     }
 
     public NetworkInputData GetLocalInputs()
