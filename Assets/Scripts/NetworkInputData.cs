@@ -9,4 +9,5 @@ public struct NetworkInputData : INetworkInput
     public float yMovement;
     public NetworkBool isJumpPressed;
     public NetworkBool isFirePressed;
+    public NetworkBool isCrouchPressed;
 }

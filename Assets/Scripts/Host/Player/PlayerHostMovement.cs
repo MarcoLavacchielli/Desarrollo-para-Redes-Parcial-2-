@@ -7,6 +7,19 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 {
     [SerializeField] private NetworkMecanimAnimator _mecanimAnim;
 
+    private NetworkInputData _inputs;
+
+    public override void FixedUpdateNetwork()
+    {
+        if (GetInput(out _inputs))
+        {
+            if (_inputs.isCrouchPressed)
+            {
+                Crouch();
+            }
+        }
+    }
+
     public override void Spawned()
     {
         base.Spawned();
@@ -14,41 +27,17 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         GetComponent<LifeHostHandler>().OnRespawn += () => TeleportToPosition(transform.position);
     }
 
-    /*public override void Move(Vector3 direction)
+    // Agregar las mecanicas aca
+
+    public void Crouch()
     {
-        var deltaTime = Runner.DeltaTime;
-        var previousPos = transform.position;
-        var moveVelocity = Velocity;
-
-        direction = direction.normalized;
-
-        if (IsGrounded && moveVelocity.y < 0)
+        if (_inputs.isCrouchPressed)
         {
-            moveVelocity.y = 0f;
+            transform.localScale = new Vector3(transform.localScale.x, 0.5f, transform.localScale.z);
+            //_networkRgbd.Rigidbody.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+
+            //_speed = crouchSpeed;
         }
+    }
 
-        moveVelocity.y += gravity * Runner.DeltaTime;
-
-        var horizontalVel = default(Vector3);
-        horizontalVel.z = moveVelocity.x;
-
-        if (direction == default)
-        {
-            horizontalVel = Vector3.Lerp(horizontalVel, default, braking * deltaTime);
-        }
-        else
-        {
-            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, maxSpeed);
-            transform.rotation = Quaternion.Euler(Vector3.up * (90 * Mathf.Sign(direction.z)));
-        }
-
-        moveVelocity.x = horizontalVel.z;
-
-        Controller.Move(moveVelocity * deltaTime);
-
-        Velocity = (transform.position - previousPos) * Runner.Simulation.Config.TickRate;
-        IsGrounded = Controller.isGrounded;
-
-        _mecanimAnim.Animator.SetFloat("MovementValue", Velocity.sqrMagnitude);
-    }*/
 }
