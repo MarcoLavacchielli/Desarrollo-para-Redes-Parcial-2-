@@ -384,7 +384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5533867911683192068
 Transform:
   m_ObjectHideFlags: 0
@@ -861,6 +861,10 @@ MonoBehaviour:
   _mecanimAnim: {fileID: 5264396022191794521}
   originalSlideForce: 0
   character: {fileID: 7921488435426358722}
+  camaraHolder: {fileID: 1237722576733185030}
+  camaraActivada: {fileID: 6652647655880539832}
+  orientation: {fileID: 2783555740837197736}
+  camaraPos: {fileID: 6989472947599307143}
   crouchSpeed: 1
   crouchYScale: 0.5
   sprintVelocity: 5
@@ -1062,7 +1066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8295289397549887903
 Transform:
   m_ObjectHideFlags: 0
