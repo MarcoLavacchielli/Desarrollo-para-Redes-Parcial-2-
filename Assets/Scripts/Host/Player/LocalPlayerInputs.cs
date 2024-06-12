@@ -10,6 +10,7 @@ public class LocalPlayerInputs : MonoBehaviour
     private bool _isFirePressed;
     private bool _isCrouchPressed;
     private bool _isStandPressed;
+    private bool _isSprintPressed;
 
     private void Awake()
     {
@@ -23,7 +24,9 @@ public class LocalPlayerInputs : MonoBehaviour
         _inputData.yMovement = Input.GetAxis("Vertical");
 
         if (Input.GetKeyDown(KeyCode.Space)) _isJumpPressed = true;
+
         if (Input.GetKeyDown(KeyCode.R)) _isFirePressed = true;
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             _isCrouchPressed = true;
@@ -32,6 +35,16 @@ public class LocalPlayerInputs : MonoBehaviour
         {
             _isStandPressed = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            _isSprintPressed = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            _isStandPressed = true;
+        }
+
     }
 
     public NetworkInputData GetLocalInputs()
@@ -40,8 +53,9 @@ public class LocalPlayerInputs : MonoBehaviour
         _inputData.isFirePressed = _isFirePressed;
         _inputData.isCrouchPressed = _isCrouchPressed;
         _inputData.isStandPressed = _isStandPressed;
+        _inputData.isSprintPressed = _isSprintPressed;
 
-        _isJumpPressed = _isFirePressed = _isCrouchPressed = _isStandPressed = false;
+        _isJumpPressed = _isFirePressed = _isCrouchPressed = _isStandPressed = _isSprintPressed = false;
 
         return _inputData;
     }

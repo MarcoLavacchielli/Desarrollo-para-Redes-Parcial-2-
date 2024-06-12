@@ -8,11 +8,17 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     [SerializeField] private NetworkMecanimAnimator _mecanimAnim;
 
     private NetworkInputData _inputs;
-
-    public float crouchSpeed = 1.0f;
-    public bool IsCrouching;
+    
     private Vector3 _originalScale;
     private float _originalSpeed;
+
+    [Header("Crounch")]
+    public float crouchSpeed = 1.0f;
+    //public bool IsCrouching;
+    public float crouchYScale = 0.5f;
+
+    [Header("Sprint")]
+    public float sprintVelocity;
 
     public override void FixedUpdateNetwork()
     {
@@ -25,6 +31,10 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             if (_inputs.isStandPressed)
             {
                 Stand();
+            }
+            if (_inputs.isSprintPressed)
+            {
+                Sprint();
             }
         }
     }
@@ -47,17 +57,29 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     public void Crouch()
     {
-        transform.localScale = new Vector3(_originalScale.x, 0.5f, _originalScale.z);
+        transform.localScale = new Vector3(_originalScale.x, crouchYScale, _originalScale.z);
         Velocity += Vector3.down * 5f;
         maxSpeed = crouchSpeed;
-        IsCrouching = true;
+        //IsCrouching = true;
     }
 
     public void Stand()
     {
         transform.localScale = _originalScale; // Restablece la escala original
         maxSpeed = _originalSpeed; // Restablece la velocidad original
-        IsCrouching = false;
+        //IsCrouching = false;
+    }
+
+    public void Sprint()
+    {
+        if (transform.localScale == new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z))
+        {
+            maxSpeed = crouchSpeed;
+        }
+        else
+        {
+            maxSpeed = sprintVelocity;
+        }
     }
 
 }

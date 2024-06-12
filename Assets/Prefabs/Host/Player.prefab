@@ -175,11 +175,14 @@ MonoBehaviour:
   jumpImpulse: 8
   acceleration: 10
   braking: 10
-  maxSpeed: 2
+  maxSpeed: 2.5
   rotationSpeed: 15
   _IsGrounded: 0
   _Velocity: {x: 0, y: 0, z: 0}
   _mecanimAnim: {fileID: 3632441457623176175}
+  crouchSpeed: 1
+  crouchYScale: 0.5
+  sprintVelocity: 5
 --- !u!114 &414225853145163974
 MonoBehaviour:
   m_ObjectHideFlags: 0

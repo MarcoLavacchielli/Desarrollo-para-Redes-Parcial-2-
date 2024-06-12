@@ -60,5 +60,10 @@ public class PlayerHostController : NetworkBehaviour
         {
             _playerHostMovement.Stand();
         }
+
+        if (_networkInputData.isSprintPressed)
+        {
+            _playerHostMovement.Sprint();
+        }
     }
 }
