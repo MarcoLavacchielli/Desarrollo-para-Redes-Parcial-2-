@@ -12,6 +12,7 @@ public class LocalPlayerInputs : MonoBehaviour
     private bool _isStandPressed;
     private bool _isSprintPressed;
     private bool _isSlidePressed;
+    private bool _isAttackPressed;
 
     private void Awake()
     {
@@ -55,6 +56,7 @@ public class LocalPlayerInputs : MonoBehaviour
             _isStandPressed = true;
         }
 
+        if (Input.GetMouseButtonDown(0)) _isAttackPressed = true;
     }
 
     public NetworkInputData GetLocalInputs()
@@ -65,8 +67,9 @@ public class LocalPlayerInputs : MonoBehaviour
         _inputData.isStandPressed = _isStandPressed;
         _inputData.isSprintPressed = _isSprintPressed;
         _inputData.isSlidePressed = _isSlidePressed;
+        _inputData.isAttackPressed = _isAttackPressed;
 
-        _isJumpPressed = _isFirePressed = _isCrouchPressed = _isStandPressed = _isSprintPressed = _isSlidePressed = false;
+        _isJumpPressed = _isFirePressed = _isCrouchPressed = _isStandPressed = _isSprintPressed = _isSlidePressed = _isAttackPressed = false;
 
         return _inputData;
     }

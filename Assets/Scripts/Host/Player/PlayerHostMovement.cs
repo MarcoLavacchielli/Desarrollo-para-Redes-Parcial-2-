@@ -64,6 +64,11 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
                 Slide();
             }
 
+            if (_inputs.isAttackPressed && Time.time >= nextAttackTime && !isAttacking)
+            {
+                Attack();
+            }
+
         }
     }
 
@@ -122,6 +127,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         }
     }
 
+    ///// Slide
     void Slide()
     {
         if (_canSlide == true)
@@ -159,5 +165,62 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         yield return new WaitForSeconds(slideCooldown);
         Debug.Log("Cooldown ended");
         _canSlide = true;
+    }
+    /////
+
+    public void Attack()
+    {
+        if (!isAttacking && Time.time >= nextAttackTime)
+        {
+            isAttacking = true;
+            nextAttackTime = Time.time + cooldown;
+
+            // Llamar al RPC de ataque en el servidor
+            RpcPerformAttack();
+        }
+    }
+
+    void RpcPerformAttack()
+    {
+        StartCoroutine(ServerPerformAttack());
+    }
+
+    IEnumerator ServerPerformAttack()
+    {
+        Debug.Log("Attacking");
+
+        // Retraso antes de realizar el ataque (opcional)
+        yield return new WaitForSeconds(0.5f);
+
+        // Lógica de ataque
+        AttackDestroyer();
+
+        // Notificar a todos los clientes que el ataque ha terminado
+        RpcAttackFinished();
+    }
+
+    void RpcAttackFinished()
+    {
+        isAttacking = false;
+    }
+
+    void AttackDestroyer()
+    {
+
+        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRadius, objLayer);
+
+        foreach (Collider hitObject in hitEnemies)
+        {
+            Fusion.NetworkObject networkObject = hitObject.GetComponent<Fusion.NetworkObject>();
+
+            if (networkObject != null)
+            {
+                Runner.Despawn(networkObject);
+            }
+            else
+            {
+                Debug.LogWarning("El objeto " + hitObject.name + " no tiene un componente NetworkObject adjunto.");
+            }
+        }
     }
 }

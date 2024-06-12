@@ -71,5 +71,10 @@ public class PlayerHostController : NetworkBehaviour
             _playerHostMovement.StartSliding();
         }
 
+        if (_networkInputData.isAttackPressed)
+        {
+            _playerHostMovement.Attack();
+        }
+
     }
 }
