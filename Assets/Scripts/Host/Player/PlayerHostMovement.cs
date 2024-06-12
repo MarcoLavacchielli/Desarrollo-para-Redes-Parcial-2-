@@ -7,6 +7,28 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 {
     [SerializeField] private NetworkMecanimAnimator _mecanimAnim;
 
+    private NetworkInputData _inputs;
+
+    public float crouchSpeed = 1.0f;
+    public bool IsCrouching;
+    private Vector3 _originalScale;
+    private float _originalSpeed;
+
+    public override void FixedUpdateNetwork()
+    {
+        if (GetInput(out _inputs))
+        {
+            if (_inputs.isCrouchPressed)
+            {
+                Crouch();
+            }
+            if (_inputs.isStandPressed)
+            {
+                Stand();
+            }
+        }
+    }
+
     public override void Spawned()
     {
         base.Spawned();
@@ -14,41 +36,28 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         GetComponent<LifeHostHandler>().OnRespawn += () => TeleportToPosition(transform.position);
     }
 
-    /*public override void Move(Vector3 direction)
+    protected override void Awake()
     {
-        var deltaTime = Runner.DeltaTime;
-        var previousPos = transform.position;
-        var moveVelocity = Velocity;
+        base.Awake();
+        _originalScale = transform.localScale;
+        _originalSpeed = maxSpeed;  // Aquí asignamos el valor de maxSpeed a _originalSpeed
+    }
 
-        direction = direction.normalized;
+    // Agregar las mecanicas aca
 
-        if (IsGrounded && moveVelocity.y < 0)
-        {
-            moveVelocity.y = 0f;
-        }
+    public void Crouch()
+    {
+        transform.localScale = new Vector3(_originalScale.x, 0.5f, _originalScale.z);
+        Velocity += Vector3.down * 5f;
+        maxSpeed = crouchSpeed;
+        IsCrouching = true;
+    }
 
-        moveVelocity.y += gravity * Runner.DeltaTime;
+    public void Stand()
+    {
+        transform.localScale = _originalScale; // Restablece la escala original
+        maxSpeed = _originalSpeed; // Restablece la velocidad original
+        IsCrouching = false;
+    }
 
-        var horizontalVel = default(Vector3);
-        horizontalVel.z = moveVelocity.x;
-
-        if (direction == default)
-        {
-            horizontalVel = Vector3.Lerp(horizontalVel, default, braking * deltaTime);
-        }
-        else
-        {
-            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, maxSpeed);
-            transform.rotation = Quaternion.Euler(Vector3.up * (90 * Mathf.Sign(direction.z)));
-        }
-
-        moveVelocity.x = horizontalVel.z;
-
-        Controller.Move(moveVelocity * deltaTime);
-
-        Velocity = (transform.position - previousPos) * Runner.Simulation.Config.TickRate;
-        IsGrounded = Controller.isGrounded;
-
-        _mecanimAnim.Animator.SetFloat("MovementValue", Velocity.sqrMagnitude);
-    }*/
 }

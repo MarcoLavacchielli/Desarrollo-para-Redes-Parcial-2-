@@ -50,5 +50,15 @@ public class PlayerHostController : NetworkBehaviour
         {
             _playerHostGun.Shoot();
         }
+
+        if (_networkInputData.isCrouchPressed)
+        {
+            _playerHostMovement.Crouch();
+        }
+
+        if (_networkInputData.isStandPressed)
+        {
+            _playerHostMovement.Stand();
+        }
     }
 }
