@@ -8,7 +8,6 @@ public class LocalPlayerInputs : MonoBehaviour
 
     private bool _isJumpPressed;
     private bool _isFirePressed;
-    private bool _isCrouchPressed;
 
     private void Awake()
     {
@@ -23,16 +22,14 @@ public class LocalPlayerInputs : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space)) _isJumpPressed = true;
         if(Input.GetKeyDown(KeyCode.R)) _isFirePressed = true;
-        if (Input.GetKeyDown(KeyCode.C)) _isCrouchPressed = true;
     }
 
     public NetworkInputData GetLocalInputs()
     {
         _inputData.isJumpPressed = _isJumpPressed;
         _inputData.isFirePressed = _isFirePressed;
-        _inputData.isCrouchPressed = _isCrouchPressed;
 
-        _isJumpPressed = _isFirePressed = _isCrouchPressed = false;
+        _isJumpPressed = _isFirePressed = false;
 
         return _inputData;
     }
