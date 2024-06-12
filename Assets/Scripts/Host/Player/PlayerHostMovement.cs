@@ -14,10 +14,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     [SerializeField] private float originalSlideForce; // Fuerza del slide original
 
-    [Header("Camera")]
-    public Camera camaraActivada;
-    public GameObject character;
-
     [Header("Crouch")]
     public float crouchSpeed = 1.0f;
     public float crouchYScale = 0.5f;
@@ -73,7 +69,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
                 Attack();
             }
 
-            camaraActivada.gameObject.SetActive(true);
         }
     }
 
@@ -82,45 +77,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         base.Spawned();
 
         GetComponent<LifeHostHandler>().OnRespawn += () => TeleportToPosition(transform.position);
-    }
-
-    public override void Move(Vector3 direction)
-    {
-        var deltaTime = Runner.DeltaTime;
-        var previousPos = transform.position;
-        var moveVelocity = Velocity;
-
-        // Transform the input direction to be relative to the character's rotation
-        direction = character.transform.TransformDirection(direction).normalized;
-
-        if (IsGrounded && moveVelocity.y < 0)
-        {
-            moveVelocity.y = 0f;
-        }
-
-        moveVelocity.y += gravity * Runner.DeltaTime;
-
-        var horizontalVel = default(Vector3);
-        horizontalVel.x = moveVelocity.x;
-        horizontalVel.z = moveVelocity.z;
-
-        if (direction == default)
-        {
-            horizontalVel = Vector3.Lerp(horizontalVel, default, braking * deltaTime);
-        }
-        else
-        {
-            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, maxSpeed);
-            character.transform.rotation = Quaternion.Slerp(character.transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Runner.DeltaTime);
-        }
-
-        moveVelocity.x = horizontalVel.x;
-        moveVelocity.z = horizontalVel.z;
-
-        Controller.Move(moveVelocity * deltaTime);
-
-        Velocity = (transform.position - previousPos) * Runner.Simulation.Config.TickRate;
-        IsGrounded = Controller.isGrounded;
     }
 
     protected override void Awake()
@@ -186,8 +142,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             // Aplica la fuerza del slide solo si está deslizándose
             if (_isSliding)
             {
-                // Transform the slide direction to be relative to the character's rotation
-                Vector3 slideDirection = character.transform.TransformDirection(Vector3.forward) * slideForce;
+                Vector3 slideDirection = transform.forward * slideForce;
                 Velocity += slideDirection;
             }
         }
