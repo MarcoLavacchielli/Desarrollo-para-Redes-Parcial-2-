@@ -15,7 +15,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     [SerializeField] private float originalSlideForce; // Fuerza del slide original
 
     [Header("Camera")]
-    public GameObject camaraActivada;
+    public Camera camaraActivada;
     public GameObject character;
 
     [Header("Crouch")]
