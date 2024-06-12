@@ -184,7 +184,7 @@ MonoBehaviour:
   crouchYScale: 0.5
   sprintVelocity: 5
   maxSlideTime: 2
-  slideSpeed: 6
+  slideSpeed: 3.5
 --- !u!114 &414225853145163974
 MonoBehaviour:
   m_ObjectHideFlags: 0
