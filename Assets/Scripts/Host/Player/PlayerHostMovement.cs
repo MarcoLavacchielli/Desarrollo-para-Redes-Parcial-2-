@@ -15,7 +15,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     [SerializeField] private float originalSlideForce; // Fuerza del slide original
 
     [Header("Camera")]
-    public GameObject camaraHolder;
     public Camera camaraActivada;
     public GameObject character;
 
@@ -75,7 +74,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             }
 
             camaraActivada.gameObject.SetActive(true);
-            camaraHolder.gameObject.SetActive(true);
         }
     }
 
