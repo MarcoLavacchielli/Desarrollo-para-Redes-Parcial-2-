@@ -14,13 +14,10 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     [SerializeField] private float originalSlideForce; // Fuerza del slide original
 
-    public GameObject character;
-
     [Header("Camera")]
-    public GameObject camaraHolder;
-    public Camera camaraActivada;
-    public GameObject orientation;
-    public GameObject camaraPos;
+    //public GameObject camaraHolder;
+    //public Camera camaraActivada;
+    public GameObject character;
 
     [Header("Crouch")]
     public float crouchSpeed = 1.0f;
@@ -77,10 +74,8 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
                 Attack();
             }
 
-            camaraActivada.gameObject.SetActive(true);
-            camaraHolder.gameObject.SetActive(true);
-            orientation.gameObject.SetActive(true);
-            camaraPos.gameObject.SetActive(true);
+            //camaraActivada.gameObject.SetActive(true);
+            //camaraHolder.gameObject.SetActive(true);
         }
     }
 
