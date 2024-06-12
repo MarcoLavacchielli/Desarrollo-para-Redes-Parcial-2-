@@ -18,7 +18,7 @@ public class PlayerHostController : NetworkBehaviour
     {
         _playerHostMovement = GetComponent<PlayerHostMovement>();
         _playerHostGun = GetComponent<PlayerHostGun>();
-        GetComponent<LifeHostHandler>().OnEnableMyController +=
+        GetComponent<LifeHostHandler>().OnEnableMyController += 
             (controller) => enabled = controller;
     }
 
@@ -41,7 +41,7 @@ public class PlayerHostController : NetworkBehaviour
         _direction = new Vector3(_networkInputData.xMovement, 0, _networkInputData.yMovement);
         _playerHostMovement.Move(_direction);
 
-        if (_networkInputData.isJumpPressed)
+        if(_networkInputData.isJumpPressed)
         {
             _playerHostMovement.Jump();
         }
@@ -50,7 +50,5 @@ public class PlayerHostController : NetworkBehaviour
         {
             _playerHostGun.Shoot();
         }
-
-        _playerHostMovement.Crouch(_networkInputData.isCrouchPressed); // Llamar a Crouch con el estado adecuado
     }
 }
