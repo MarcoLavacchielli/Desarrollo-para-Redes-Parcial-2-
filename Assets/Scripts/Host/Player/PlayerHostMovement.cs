@@ -27,9 +27,16 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     public float slideForce = 10.0f; // Fuerza del slide
     private bool _isSliding = false;
     private float _slideTimer = 0f;
-
     [SerializeField] private bool _canSlide = true;
     public float slideCooldown = 1.0f;
+
+    [Header("Ataque")]
+    [SerializeField] private float attackRadius = 1.5f;
+    [SerializeField] private LayerMask objLayer;
+    public int danio;
+    private bool isAttacking = false;
+    [SerializeField] private float cooldown = 0.5f;
+    private float nextAttackTime = 0f;
 
     public override void FixedUpdateNetwork()
     {
