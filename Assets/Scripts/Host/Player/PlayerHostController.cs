@@ -65,5 +65,11 @@ public class PlayerHostController : NetworkBehaviour
         {
             _playerHostMovement.Sprint();
         }
+
+        if (_networkInputData.isSlidePressed)
+        {
+            _playerHostMovement.StartSliding();
+        }
+
     }
 }

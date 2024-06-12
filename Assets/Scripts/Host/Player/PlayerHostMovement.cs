@@ -20,6 +20,12 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     [Header("Sprint")]
     public float sprintVelocity;
 
+    [Header("Slider")]
+    public float maxSlideTime;
+    public float slideSpeed;
+    private bool _isSliding = false;
+    private float _slideTimer = 0f;
+
     public override void FixedUpdateNetwork()
     {
         if (GetInput(out _inputs))
@@ -36,6 +42,16 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             {
                 Sprint();
             }
+
+            if (_inputs.isSlidePressed && !_isSliding)
+            {
+                StartSliding();
+            }
+            if (_isSliding)
+            {
+                Slide();
+            }
+
         }
     }
 
@@ -80,6 +96,33 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             maxSpeed = sprintVelocity;
         }
+    }
+
+    public void StartSliding()
+    {
+        _isSliding = true;
+        _slideTimer = 0f;
+        maxSpeed = slideSpeed;
+        transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+        //_networkRgbd.Rigidbody.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+    }
+
+    void Slide()
+    {
+        _slideTimer += Time.fixedDeltaTime;
+
+        if (_slideTimer >= maxSlideTime)
+        {
+            EndSlide();
+        }
+    }
+
+    void EndSlide()
+    {
+        _isSliding = false;
+        _slideTimer = 0f;
+        maxSpeed = _originalSpeed;
+        transform.localScale = new Vector3(transform.localScale.x, 1f, transform.localScale.z);
     }
 
 }

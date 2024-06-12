@@ -12,4 +12,5 @@ public struct NetworkInputData : INetworkInput
     public NetworkBool isCrouchPressed;
     public NetworkBool isStandPressed;
     public NetworkBool isSprintPressed;
+    public NetworkBool isSlidePressed;
 }
