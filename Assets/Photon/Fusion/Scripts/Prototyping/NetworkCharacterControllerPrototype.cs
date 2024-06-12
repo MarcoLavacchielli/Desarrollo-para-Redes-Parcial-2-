@@ -33,7 +33,7 @@ public class NetworkCharacterControllerPrototype : NetworkTransform {
   /// Sets the default teleport interpolation angular velocity to be the CC's rotation speed on the Z axis.
   /// For more details on how this field is used, see <see cref="NetworkTransform.TeleportToRotation"/>.
   /// </summary>
-  protected override Vector3 DefaultTeleportInterpolationAngularVelocity => new Vector3(0f, 0f, rotationSpeed);
+  //protected override Vector3 DefaultTeleportInterpolationAngularVelocity => new Vector3(0f, 0f, rotationSpeed);
 
   public CharacterController Controller { get; private set; }
 
@@ -104,7 +104,7 @@ public class NetworkCharacterControllerPrototype : NetworkTransform {
       horizontalVel = Vector3.Lerp(horizontalVel, default, braking * deltaTime);
     } else {
       horizontalVel      = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, maxSpeed);
-      transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Runner.DeltaTime);
+      //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Runner.DeltaTime);
     }
 
     moveVelocity.x = horizontalVel.x;
