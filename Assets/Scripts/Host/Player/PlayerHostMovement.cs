@@ -17,10 +17,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     public GameObject character;
 
     [Header("Camera")]
-    public GameObject camaraHolder;
     public Camera camaraActivada;
-    public GameObject orientation;
-    public GameObject camaraPos;
 
     [Header("Crouch")]
     public float crouchSpeed = 1.0f;
@@ -76,11 +73,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             {
                 Attack();
             }
-
-            camaraActivada.gameObject.SetActive(true);
-            camaraHolder.gameObject.SetActive(true);
-            orientation.gameObject.SetActive(true);
-            camaraPos.gameObject.SetActive(true);
         }
     }
 
