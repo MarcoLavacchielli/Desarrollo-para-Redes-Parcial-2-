@@ -8,13 +8,14 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     [SerializeField] private NetworkMecanimAnimator _mecanimAnim;
 
     private NetworkInputData _inputs;
-    
+
     private Vector3 _originalScale;
     private float _originalSpeed;
 
-    [Header("Crounch")]
+    [SerializeField] private float originalSlideForce; // Fuerza del slide original
+
+    [Header("Crouch")]
     public float crouchSpeed = 1.0f;
-    //public bool IsCrouching;
     public float crouchYScale = 0.5f;
 
     [Header("Sprint")]
@@ -23,8 +24,12 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     [Header("Slider")]
     public float maxSlideTime;
     public float slideSpeed;
+    public float slideForce = 10.0f; // Fuerza del slide
     private bool _isSliding = false;
     private float _slideTimer = 0f;
+
+    [SerializeField] private bool _canSlide = true;
+    public float slideCooldown = 1.0f;
 
     public override void FixedUpdateNetwork()
     {
@@ -66,24 +71,24 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     {
         base.Awake();
         _originalScale = transform.localScale;
-        _originalSpeed = maxSpeed;  // Aquí asignamos el valor de maxSpeed a _originalSpeed
-    }
+        _originalSpeed = maxSpeed;
 
-    // Agregar las mecanicas aca
+        originalSlideForce = slideForce;
+    }
 
     public void Crouch()
     {
         transform.localScale = new Vector3(_originalScale.x, crouchYScale, _originalScale.z);
         Velocity += Vector3.down * 5f;
         maxSpeed = crouchSpeed;
-        //IsCrouching = true;
     }
 
     public void Stand()
     {
-        transform.localScale = _originalScale; // Restablece la escala original
-        maxSpeed = _originalSpeed; // Restablece la velocidad original
-        //IsCrouching = false;
+        slideForce = 0f;
+
+        transform.localScale = _originalScale;
+        maxSpeed = _originalSpeed;
     }
 
     public void Sprint()
@@ -100,29 +105,52 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     public void StartSliding()
     {
-        _isSliding = true;
-        _slideTimer = 0f;
-        maxSpeed = slideSpeed;
-        transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-        //_networkRgbd.Rigidbody.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+        if (_canSlide == true)
+        {
+            slideForce = originalSlideForce;
+            _isSliding = true;
+            _slideTimer = 0f;
+            maxSpeed = slideSpeed;
+            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+        }
     }
 
     void Slide()
     {
-        _slideTimer += Time.fixedDeltaTime;
-
-        if (_slideTimer >= maxSlideTime)
+        if (_canSlide == true)
         {
-            EndSlide();
+            _slideTimer += Time.fixedDeltaTime;
+
+            if (_slideTimer >= maxSlideTime)
+            {
+                EndSlide();
+            }
+
+            // Aplica la fuerza del slide solo si está deslizándose
+            if (_isSliding)
+            {
+                Vector3 slideDirection = transform.forward * slideForce;
+                Velocity += slideDirection;
+            }
         }
     }
 
     void EndSlide()
     {
+        slideForce = 0f;
         _isSliding = false;
         _slideTimer = 0f;
         maxSpeed = _originalSpeed;
         transform.localScale = new Vector3(transform.localScale.x, 1f, transform.localScale.z);
+        StartCoroutine(SlideCooldown());
     }
 
+    IEnumerator SlideCooldown()
+    {
+        _canSlide = false;
+        Debug.Log("Cooldown started");
+        yield return new WaitForSeconds(slideCooldown);
+        Debug.Log("Cooldown ended");
+        _canSlide = true;
+    }
 }
