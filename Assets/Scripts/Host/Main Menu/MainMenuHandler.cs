@@ -21,6 +21,8 @@ public class MainMenuHandler : MonoBehaviour
     [Space(25), Header("Text"), SerializeField] TextMeshProUGUI _statusText;
     [SerializeField] string _sceneName;
 
+    public AudioManager audioM;
+
     private void Awake()
     {
         _joinLobbyPanel.SetActive(true);
@@ -76,5 +78,10 @@ public class MainMenuHandler : MonoBehaviour
     void HostGame()
     {
         _networkHostHandler.CreateGame(_sessionNameField.text, _sceneName);
+    }
+
+    public void ButtonClicked()
+    {
+        audioM.PlaySFX(0);
     }
 }
