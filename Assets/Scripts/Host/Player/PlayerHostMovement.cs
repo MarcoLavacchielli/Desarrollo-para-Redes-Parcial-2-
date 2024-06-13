@@ -14,6 +14,8 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     [SerializeField] private float originalSlideForce; // Fuerza del slide original
 
+    public AudioManager audioM;
+
     [Header("Camera")]
     public Camera cameraAct;
 
@@ -255,8 +257,10 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         }
     }
 
+    [Header("Camera")]
     public GameObject victoryScreen;
     public GameObject defeatScreen;
+    public GameObject Timer;
     [SerializeField] NetworkBool gano = false;
 
     private void OnTriggerEnter(Collider other)
