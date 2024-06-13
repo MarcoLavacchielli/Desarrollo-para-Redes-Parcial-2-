@@ -12,9 +12,13 @@ public class DespawnObject : NetworkBehaviour
     private int playersInside = 0;
     private NetworkBool countingDown = false;
     private float countdownTimer = 3f;
-    public TMP_Text countdownText;
+    //public TMP_Text countdownText;
 
     private NetworkBool objDestroyed = false;
+
+    public AudioManager audioM;
+
+    public ParticleSystem explosion;
 
     private void Update()
     {
@@ -22,11 +26,11 @@ public class DespawnObject : NetworkBehaviour
         {
             countdownTimer -= Time.deltaTime;
             int secondsLeft = Mathf.CeilToInt(countdownTimer);
-            countdownText.text = secondsLeft.ToString();
+            //countdownText.text = secondsLeft.ToString();
 
             if (countdownTimer <= 0)
             {
-                countdownText.text = "";
+                //countdownText.text = "";
                 countingDown = false;
                 DespawnWalls();
             }
@@ -58,7 +62,7 @@ public class DespawnObject : NetworkBehaviour
             {
                 countdownTimer = 3f;
                 countingDown = false;
-                countdownText.text = "";
+                //countdownText.text = "";
             }
         }
     }
@@ -70,6 +74,8 @@ public class DespawnObject : NetworkBehaviour
         {
             objDestroyed = true;
             Runner.Despawn(wallObj);
+            audioM.PlaySFX(0);
+            explosion.Play();
         }
     }
 }
