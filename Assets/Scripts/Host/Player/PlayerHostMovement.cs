@@ -98,6 +98,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         else if (maxSpeed > crouchSpeed && maxSpeed < sprintVelocity && isMoving)
         {
             _networkAnimator.Animator.SetBool("slowRun", true);
+            audioM.PlaySFX(2);
         }
 
         if (isAttacking)
@@ -108,6 +109,10 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     private void HandleInputs()
     {
+        if (_inputs.isJumpPressed && IsGrounded == true)
+        {
+            audioM.PlaySFX(1);
+        }
         if (_inputs.isCrouchPressed)
         {
             Crouch();
@@ -228,6 +233,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     private IEnumerator ServerPerformAttack()
     {
         Debug.Log("Attacking");
+        audioM.PlaySFX(0);
         yield return new WaitForSeconds(0.5f);
         AttackDestroyer();
         RpcAttackFinished();

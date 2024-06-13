@@ -195,7 +195,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 36a5c19441da86d4e942e65d60c5350c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -750,6 +750,10 @@ PrefabInstance:
     - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
       propertyPath: ShapeModule.m_Scale.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
       propertyPath: InitialModule.maxNumParticles
@@ -1418,7 +1422,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSounds: []
   sfxSounds: []
-  musicSource: []
+  musicSource:
+  - {fileID: 605865232}
   sfxSource:
   - {fileID: 1528615183}
   musicaIndex: 0
