@@ -14,6 +14,9 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     [SerializeField] private float originalSlideForce; // Fuerza del slide original
 
+    [Header("Camera")]
+    public Camera cameraAct;
+
     [Header("Crouch")]
     public float crouchSpeed = 1.0f;
     public float crouchYScale = 0.5f;
@@ -76,7 +79,16 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     {
         base.Spawned();
 
-        GetComponent<LifeHostHandler>().OnRespawn += () => TeleportToPosition(transform.position);
+        if (Object.HasInputAuthority)
+        {
+            cameraAct.gameObject.SetActive(true);
+        }
+        else
+        {
+            cameraAct.gameObject.SetActive(false);
+        }
+
+            GetComponent<LifeHostHandler>().OnRespawn += () => TeleportToPosition(transform.position);
     }
 
     protected override void Awake()
