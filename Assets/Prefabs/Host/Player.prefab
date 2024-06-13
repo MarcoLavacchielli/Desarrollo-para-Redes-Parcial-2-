@@ -2312,7 +2312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSounds: []
   sfxSounds: []
-  musicSource: []
+  musicSource:
+  - {fileID: 0}
   sfxSource: []
   musicaIndex: 0
 --- !u!1 &3594851658631716554
@@ -2768,7 +2769,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 36a5c19441da86d4e942e65d60c5350c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
