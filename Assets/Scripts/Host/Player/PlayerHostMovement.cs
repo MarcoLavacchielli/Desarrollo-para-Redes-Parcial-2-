@@ -58,6 +58,11 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             _networkAnimator.Animator.SetBool("fastRun", true);
         }
 
+        if (maxSpeed == 2.5f)
+        {
+            _networkAnimator.Animator.SetBool("slowRun", true);
+        }
+
         if (isAttacking == true)
         {
             _networkAnimator.Animator.SetBool("isAttack", true);
@@ -108,7 +113,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             cameraAct.gameObject.SetActive(false);
         }
 
-            GetComponent<LifeHostHandler>().OnRespawn += () => TeleportToPosition(transform.position);
+        GetComponent<LifeHostHandler>().OnRespawn += () => TeleportToPosition(transform.position);
     }
 
     protected override void Awake()
