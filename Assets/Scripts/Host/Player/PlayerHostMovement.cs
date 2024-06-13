@@ -235,4 +235,40 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             }
         }
     }
+
+
+    public GameObject victoryScreen;
+    public GameObject defeatScreen;
+    [SerializeField] NetworkBool gano = false;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Meta")
+        {
+            Gano();
+            gano = true;
+        }
+    }
+
+    public void Gano()
+    {
+        victoryScreen.SetActive(true);
+        defeatScreen = null;
+        //SceneManager.LoadScene("Victory");
+        gano = true;
+    }
+
+    public void Perdio()
+    {
+        if (gano == false)
+        {
+            defeatScreen.SetActive(true);
+            victoryScreen = null;
+            //SceneManager.LoadScene("Defeat");
+        }
+        if (gano == true)
+        {
+            Gano();
+        }
+    }
 }
