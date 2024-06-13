@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerHostMovement : NetworkCharacterControllerPrototype
 {
-    [SerializeField] private NetworkMecanimAnimator _mecanimAnim;
+    [SerializeField] private NetworkMecanimAnimator _networkAnimator;
 
     private NetworkInputData _inputs;
 
@@ -43,6 +43,26 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     public override void FixedUpdateNetwork()
     {
+        _networkAnimator.Animator.SetBool("slowRun", false);
+        _networkAnimator.Animator.SetBool("crouchIdle", false);
+        _networkAnimator.Animator.SetBool("fastRun", false);
+        _networkAnimator.Animator.SetBool("isAttack", false);
+
+        if (maxSpeed == crouchSpeed)
+        {
+            _networkAnimator.Animator.SetBool("crouchIdle", true);
+        }
+
+        if (maxSpeed == sprintVelocity)
+        {
+            _networkAnimator.Animator.SetBool("fastRun", true);
+        }
+
+        if (isAttacking == true)
+        {
+            _networkAnimator.Animator.SetBool("isAttack", true);
+        }
+
         if (GetInput(out _inputs))
         {
             if (_inputs.isCrouchPressed)
