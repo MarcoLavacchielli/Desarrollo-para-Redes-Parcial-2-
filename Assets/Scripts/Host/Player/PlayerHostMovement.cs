@@ -39,7 +39,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     [SerializeField] private float attackRadius = 1.5f;
     [SerializeField] private LayerMask objLayer;
     public int danio;
-    private bool isAttacking = false;
+    [SerializeField] private NetworkBool isAttacking = false;
     [SerializeField] private float cooldown = 0.5f;
     private float nextAttackTime = 0f;
 
@@ -109,7 +109,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             audioM.PlaySFX(2);
         }
 
-        if (isAttacking)
+        if (isAttacking == true)
         {
             _networkAnimator.Animator.SetBool("isAttack", true);
         }
@@ -144,6 +144,10 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         if (_inputs.isAttackPressed && Time.time >= nextAttackTime && !isAttacking)
         {
             Attack();
+        }
+        else
+        {
+            isAttacking = false;
         }
     }
 
@@ -229,7 +233,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             isAttacking = true;
             nextAttackTime = Time.time + cooldown;
-            RpcPerformAttack();
+            //RpcPerformAttack();
         }
     }
 
@@ -244,7 +248,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         audioM.PlaySFX(0);
         yield return new WaitForSeconds(0.5f);
         AttackDestroyer();
-        RpcAttackFinished();
+        //RpcAttackFinished();
     }
 
     private void RpcAttackFinished()
