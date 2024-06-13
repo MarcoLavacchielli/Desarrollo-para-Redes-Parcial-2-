@@ -72,10 +72,18 @@ public class DespawnObject : NetworkBehaviour
         GameObject[] lobbyWalls = GameObject.FindGameObjectsWithTag("LobbyWall");
         foreach (GameObject wall in lobbyWalls)
         {
-            objDestroyed = true;
-            Runner.Despawn(wallObj);
-            audioM.PlaySFX(0);
-            explosion.Play();
+            if (Object.HasInputAuthority)
+            {
+                objDestroyed = true;
+                Runner.Despawn(wallObj);
+                audioM.PlaySFX(0);
+                explosion.Play();
+            }
+            else
+            {
+                
+            }
+            
         }
     }
 }
