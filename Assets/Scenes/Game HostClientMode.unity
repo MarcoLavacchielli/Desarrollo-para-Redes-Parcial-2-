@@ -195,7 +195,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 36a5c19441da86d4e942e65d60c5350c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -679,116 +679,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 29.083, y: 0, z: 0}
---- !u!1001 &1073804486
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1938648940371793933, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.09999981
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793933, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793933, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 8.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793933, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071079
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793933, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793933, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793933, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.70710576
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793933, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793933, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793933, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793934, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: m_Name
-      value: ParticleShoot
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: lengthInSec
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: ShapeModule.type
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: ShapeModule.m_Scale.x
-      value: 2.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: ShapeModule.m_Scale.y
-      value: 20.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: ShapeModule.m_Scale.z
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
---- !u!198 &1073804487 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1938648940371793935, guid: c5edac6cdb4532a45b2550a0a306b431, type: 3}
-  m_PrefabInstance: {fileID: 1073804486}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1525988318
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,7 +808,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e71466bdad48cb347af5b8290a22662a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6764473d5496c4444b609daf16464251, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1403,7 +1293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1814087865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1418,7 +1308,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSounds: []
   sfxSounds: []
-  musicSource: []
+  musicSource:
+  - {fileID: 605865232}
   sfxSource:
   - {fileID: 1528615183}
   musicaIndex: 0
@@ -5147,7 +5038,7 @@ Transform:
   m_GameObject: {fileID: 8993387721649624047}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.84, z: 5.04}
+  m_LocalPosition: {x: 0, y: -0.84, z: 6.28}
   m_LocalScale: {x: 0.6682931, y: 0.1594757, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5209,8 +5100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   wallObj: {fileID: 5909646565427898388}
-  audioM: {fileID: 1814087865}
-  explosion: {fileID: 1073804487}
+  countdownText: {fileID: 1660861447}
 --- !u!23 &9045548183999903572
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5334,5 +5224,4 @@ SceneRoots:
   - {fileID: 4668629691454528238}
   - {fileID: 2482690582139889241}
   - {fileID: 1525988322}
-  - {fileID: 1073804486}
   - {fileID: 1814087866}
