@@ -12,7 +12,7 @@ public class DespawnObject : NetworkBehaviour
     private int playersInside = 0;
     private NetworkBool countingDown = false;
     private float countdownTimer = 3f;
-    //public TMP_Text countdownText;
+    public TMP_Text countdownText;
 
     private NetworkBool objDestroyed = false;
 
@@ -26,7 +26,7 @@ public class DespawnObject : NetworkBehaviour
         {
             countdownTimer -= Time.deltaTime;
             int secondsLeft = Mathf.CeilToInt(countdownTimer);
-            //countdownText.text = secondsLeft.ToString();
+            countdownText.text = secondsLeft.ToString();
 
             if (countdownTimer <= 0)
             {
@@ -62,7 +62,7 @@ public class DespawnObject : NetworkBehaviour
             {
                 countdownTimer = 3f;
                 countingDown = false;
-                //countdownText.text = "";
+                countdownText.text = "";
             }
         }
     }
