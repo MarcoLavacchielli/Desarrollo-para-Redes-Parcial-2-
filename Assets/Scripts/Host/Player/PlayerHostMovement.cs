@@ -43,60 +43,11 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     public override void FixedUpdateNetwork()
     {
-        _networkAnimator.Animator.SetBool("slowRun", false);
-        _networkAnimator.Animator.SetBool("crouchIdle", false);
-        _networkAnimator.Animator.SetBool("fastRun", false);
-        _networkAnimator.Animator.SetBool("isAttack", false);
-
-        if (maxSpeed == crouchSpeed)
-        {
-            _networkAnimator.Animator.SetBool("crouchIdle", true);
-        }
-
-        if (maxSpeed == sprintVelocity)
-        {
-            _networkAnimator.Animator.SetBool("fastRun", true);
-        }
-
-        if (maxSpeed == 2.5f)
-        {
-            _networkAnimator.Animator.SetBool("slowRun", true);
-        }
-
-        if (isAttacking == true)
-        {
-            _networkAnimator.Animator.SetBool("isAttack", true);
-        }
+        UpdateAnimations();
 
         if (GetInput(out _inputs))
         {
-            if (_inputs.isCrouchPressed)
-            {
-                Crouch();
-            }
-            if (_inputs.isStandPressed)
-            {
-                Stand();
-            }
-            if (_inputs.isSprintPressed)
-            {
-                Sprint();
-            }
-
-            if (_inputs.isSlidePressed && !_isSliding)
-            {
-                StartSliding();
-            }
-            if (_isSliding)
-            {
-                Slide();
-            }
-
-            if (_inputs.isAttackPressed && Time.time >= nextAttackTime && !isAttacking)
-            {
-                Attack();
-            }
-
+            HandleInputs();
         }
     }
 
@@ -125,6 +76,62 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         originalSlideForce = slideForce;
     }
 
+    private void UpdateAnimations()
+    {
+        _networkAnimator.Animator.SetBool("slowRun", false);
+        _networkAnimator.Animator.SetBool("crouchIdle", false);
+        _networkAnimator.Animator.SetBool("fastRun", false);
+        _networkAnimator.Animator.SetBool("isAttack", false);
+
+        bool isMoving = Velocity.magnitude > 0.1f;
+
+        if (maxSpeed == crouchSpeed && isMoving)
+        {
+            _networkAnimator.Animator.SetBool("crouchIdle", true);
+        }
+        else if (maxSpeed == sprintVelocity && isMoving)
+        {
+            _networkAnimator.Animator.SetBool("fastRun", true);
+        }
+        else if (maxSpeed > crouchSpeed && maxSpeed < sprintVelocity && isMoving)
+        {
+            _networkAnimator.Animator.SetBool("slowRun", true);
+        }
+
+        if (isAttacking)
+        {
+            _networkAnimator.Animator.SetBool("isAttack", true);
+        }
+    }
+
+    private void HandleInputs()
+    {
+        if (_inputs.isCrouchPressed)
+        {
+            Crouch();
+        }
+        if (_inputs.isStandPressed)
+        {
+            Stand();
+        }
+        if (_inputs.isSprintPressed)
+        {
+            Sprint();
+        }
+        if (_inputs.isSlidePressed && !_isSliding)
+        {
+            StartSliding();
+        }
+        if (_isSliding)
+        {
+            Slide();
+        }
+        if (_inputs.isAttackPressed && Time.time >= nextAttackTime && !isAttacking)
+        {
+            Attack();
+        }
+    }
+
     public void Crouch()
     {
         transform.localScale = new Vector3(_originalScale.x, crouchYScale, _originalScale.z);
@@ -135,7 +142,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     public void Stand()
     {
         slideForce = 0f;
-
         transform.localScale = _originalScale;
         maxSpeed = _originalSpeed;
     }
@@ -154,7 +160,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     public void StartSliding()
     {
-        if (_canSlide == true)
+        if (_canSlide)
         {
             slideForce = originalSlideForce;
             _isSliding = true;
@@ -164,10 +170,9 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         }
     }
 
-    ///// Slide
-    void Slide()
+    private void Slide()
     {
-        if (_canSlide == true)
+        if (_canSlide)
         {
             _slideTimer += Time.fixedDeltaTime;
 
@@ -176,7 +181,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
                 EndSlide();
             }
 
-            // Aplica la fuerza del slide solo si está deslizándose
             if (_isSliding)
             {
                 Vector3 slideDirection = transform.forward * slideForce;
@@ -185,7 +189,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         }
     }
 
-    void EndSlide()
+    private void EndSlide()
     {
         slideForce = 0f;
         _isSliding = false;
@@ -195,7 +199,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         StartCoroutine(SlideCooldown());
     }
 
-    IEnumerator SlideCooldown()
+    private IEnumerator SlideCooldown()
     {
         _canSlide = false;
         Debug.Log("Cooldown started");
@@ -203,7 +207,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         Debug.Log("Cooldown ended");
         _canSlide = true;
     }
-    /////
 
     public void Attack()
     {
@@ -211,39 +214,30 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             isAttacking = true;
             nextAttackTime = Time.time + cooldown;
-
-            // Llamar al RPC de ataque en el servidor
             RpcPerformAttack();
         }
     }
 
-    void RpcPerformAttack()
+    private void RpcPerformAttack()
     {
         StartCoroutine(ServerPerformAttack());
     }
 
-    IEnumerator ServerPerformAttack()
+    private IEnumerator ServerPerformAttack()
     {
         Debug.Log("Attacking");
-
-        // Retraso antes de realizar el ataque (opcional)
         yield return new WaitForSeconds(0.5f);
-
-        // Lógica de ataque
         AttackDestroyer();
-
-        // Notificar a todos los clientes que el ataque ha terminado
         RpcAttackFinished();
     }
 
-    void RpcAttackFinished()
+    private void RpcAttackFinished()
     {
         isAttacking = false;
     }
 
-    void AttackDestroyer()
+    private void AttackDestroyer()
     {
-
         Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRadius, objLayer);
 
         foreach (Collider hitObject in hitEnemies)
@@ -260,7 +254,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             }
         }
     }
-
 
     public GameObject victoryScreen;
     public GameObject defeatScreen;
@@ -279,19 +272,17 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     {
         victoryScreen.SetActive(true);
         defeatScreen = null;
-        //SceneManager.LoadScene("Victory");
         gano = true;
     }
 
     public void Perdio()
     {
-        if (gano == false)
+        if (!gano)
         {
             defeatScreen.SetActive(true);
             victoryScreen = null;
-            //SceneManager.LoadScene("Defeat");
         }
-        if (gano == true)
+        else
         {
             Gano();
         }
