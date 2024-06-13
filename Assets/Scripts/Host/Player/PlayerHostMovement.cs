@@ -87,7 +87,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
         bool isMoving = Velocity.magnitude > 0.1f;
 
-        if (transform.localScale.y == crouchYScale)
+        if (maxSpeed == crouchSpeed && isMoving)
         {
             _networkAnimator.Animator.SetBool("crouchIdle", true);
         }
@@ -98,10 +98,9 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         else if (maxSpeed > crouchSpeed && maxSpeed < sprintVelocity && isMoving)
         {
             _networkAnimator.Animator.SetBool("slowRun", true);
-            audioM.PlaySFX(2);
         }
 
-        if (isAttacking == true)
+        if (isAttacking)
         {
             _networkAnimator.Animator.SetBool("isAttack", true);
         }
