@@ -288,7 +288,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     public void Gano()
     {
         victoryScreen.SetActive(true);
-        audioM.PlaySFX(3);
         defeatScreen = null;
         gano = true;
     }
@@ -298,7 +297,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         if (!gano)
         {
             defeatScreen.SetActive(true);
-            audioM.PlaySFX(4);
             victoryScreen = null;
         }
         else
