@@ -95,7 +95,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
         bool isMoving = Velocity.magnitude > 0.1f;
 
-        if (maxSpeed == crouchSpeed && isMoving)
+        if (transform.localScale.y == crouchYScale) // Comprueba si el jugador está agachado
         {
             _networkAnimator.Animator.SetBool("crouchIdle", true);
         }
