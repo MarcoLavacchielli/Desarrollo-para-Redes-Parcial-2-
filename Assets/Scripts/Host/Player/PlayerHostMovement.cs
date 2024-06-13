@@ -60,6 +60,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         if (Object.HasInputAuthority)
         {
             cameraAct.gameObject.SetActive(true);
+            audioM = FindObjectOfType<AudioManager>();
         }
         else
         {
@@ -68,7 +69,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
         GetComponent<LifeHostHandler>().OnRespawn += () => TeleportToPosition(transform.position);
 
-        audioM = FindObjectOfType<AudioManager>();
+        //audioM = FindObjectOfType<AudioManager>();
 
         if (audioM == null)
         {
