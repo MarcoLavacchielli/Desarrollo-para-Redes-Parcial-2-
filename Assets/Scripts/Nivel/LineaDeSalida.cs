@@ -18,6 +18,9 @@ public class LineaDeSalida : NetworkBehaviour
 
     private NetworkBool objDestroyed = false;
 
+    [SerializeField] ParticleSystem destroy;
+    [SerializeField] AudioManager audioM;
+
     private void Update()
     {
         if (countingDown && !objDestroyed)
@@ -30,6 +33,10 @@ public class LineaDeSalida : NetworkBehaviour
             {
                 countdownText.text = "";
                 countingDown = false;
+
+                destroy.Play();
+                audioM.PlaySFX(5);
+
                 DespawnWalls();
             }
         }

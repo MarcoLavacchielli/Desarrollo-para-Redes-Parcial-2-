@@ -14,7 +14,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     [SerializeField] private float originalSlideForce; // Fuerza del slide original
 
-    public AudioManager audioM;
+    AudioManager audioM;
 
     [Header("Camera")]
     public Camera cameraAct;
@@ -66,6 +66,13 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             cameraAct.gameObject.SetActive(false);
         }
 
+        audioM = FindObjectOfType<AudioManager>();
+
+        if (audioM == null)
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+
         GetComponent<LifeHostHandler>().OnRespawn += () => TeleportToPosition(transform.position);
     }
 
@@ -98,6 +105,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         else if (maxSpeed > crouchSpeed && maxSpeed < sprintVelocity && isMoving)
         {
             _networkAnimator.Animator.SetBool("slowRun", true);
+            audioM.PlaySFX(2);
         }
 
         if (isAttacking)
@@ -108,6 +116,10 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     private void HandleInputs()
     {
+        if (_inputs.isJumpPressed)
+        {
+            audioM.PlaySFX(1);
+        }
         if (_inputs.isCrouchPressed)
         {
             Crouch();
@@ -228,6 +240,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     private IEnumerator ServerPerformAttack()
     {
         Debug.Log("Attacking");
+        audioM.PlaySFX(0);
         yield return new WaitForSeconds(0.5f);
         AttackDestroyer();
         AttackFinished();
@@ -277,6 +290,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         victoryScreen.SetActive(true);
         defeatScreen = null;
         gano = true;
+        audioM.PlaySFX(3);
     }
 
     public void Perdio()
@@ -285,6 +299,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             defeatScreen.SetActive(true);
             victoryScreen = null;
+            audioM.PlaySFX(4);
         }
         else
         {
