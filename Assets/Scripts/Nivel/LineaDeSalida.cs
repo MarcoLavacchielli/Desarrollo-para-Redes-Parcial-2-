@@ -6,12 +6,14 @@ using TMPro;
 using Fusion;
 using UnityEngine.SceneManagement;
 
-public class DespawnObject : NetworkBehaviour
+public class LineaDeSalida : NetworkBehaviour
 {
     public NetworkObject wallObj;
     private int playersInside = 0;
-    private NetworkBool countingDown = false;
-    private float countdownTimer = 3f;
+    [Networked(OnChanged = nameof(OnCountdownChanged))]
+    private NetworkBool countingDown { get; set; }
+    [Networked]
+    private float countdownTimer { get; set; } = 3f;
     public TMP_Text countdownText;
 
     private NetworkBool objDestroyed = false;
@@ -37,11 +39,9 @@ public class DespawnObject : NetworkBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            print("A");
-
             playersInside++;
 
-            if (playersInside >= 2)
+            if (playersInside >= 2 && Object.HasStateAuthority)
             {
                 countingDown = true;
             }
@@ -54,7 +54,7 @@ public class DespawnObject : NetworkBehaviour
         {
             playersInside--;
 
-            if (playersInside < 2)
+            if (playersInside < 2 && Object.HasStateAuthority)
             {
                 countdownTimer = 3f;
                 countingDown = false;
@@ -68,8 +68,29 @@ public class DespawnObject : NetworkBehaviour
         GameObject[] lobbyWalls = GameObject.FindGameObjectsWithTag("LobbyWall");
         foreach (GameObject wall in lobbyWalls)
         {
-            objDestroyed = true;
-            Runner.Despawn(wallObj);
+            if (Object.HasStateAuthority)
+            {
+                objDestroyed = true;
+                Runner.Despawn(wallObj);
+            }
         }
+    }
+
+    public static void OnCountdownChanged(Changed<LineaDeSalida> changed)
+    {
+        // Cuando el estado de countingDown cambia, sincronizamos el texto para todos los clientes
+        changed.Behaviour.SyncCountdownText();
+    }
+
+    private void SyncCountdownText()
+    {
+        if (!countingDown)
+        {
+            countdownText.text = "";
+            return;
+        }
+
+        int secondsLeft = Mathf.CeilToInt(countdownTimer);
+        countdownText.text = secondsLeft.ToString();
     }
 }

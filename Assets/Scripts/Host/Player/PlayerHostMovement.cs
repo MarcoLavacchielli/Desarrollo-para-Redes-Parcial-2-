@@ -216,11 +216,11 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             isAttacking = true;
             nextAttackTime = Time.time + cooldown;
-            RpcPerformAttack();
+            PerformAttack();
         }
     }
 
-    private void RpcPerformAttack()
+    private void PerformAttack()
     {
         StartCoroutine(ServerPerformAttack());
     }
@@ -230,10 +230,10 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         Debug.Log("Attacking");
         yield return new WaitForSeconds(0.5f);
         AttackDestroyer();
-        RpcAttackFinished();
+        AttackFinished();
     }
 
-    private void RpcAttackFinished()
+    private void AttackFinished()
     {
         isAttacking = false;
     }
