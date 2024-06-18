@@ -41,7 +41,8 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     [SerializeField] private float attackRadius = 1.5f;
     [SerializeField] private LayerMask objLayer;
     public int danio;
-    private bool isAttacking = false;
+    [Networked(OnChanged = nameof(OnAttackingChanged))]
+    private bool isAttacking { get; set; }
     [SerializeField] private float cooldown = 0.5f;
     private float nextAttackTime = 0f;
 
@@ -230,7 +231,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             isAttacking = true;
             nextAttackTime = Time.time + cooldown;
-            attackPs.Play();
             PerformAttack();
         }
     }
@@ -247,6 +247,24 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         yield return new WaitForSeconds(0.5f);
         AttackDestroyer();
         AttackFinished();
+
+        //
+
+        //
+    }
+
+    static void OnAttackingChanged(Changed<PlayerHostMovement> changed)
+    {
+        bool currentFiring = changed.Behaviour.isAttacking;
+        changed.LoadOld();
+        bool oldFiring = changed.Behaviour.isAttacking;
+
+        if (!oldFiring && currentFiring) changed.Behaviour.TurnOnParticleSystem();
+    }
+
+    void TurnOnParticleSystem()
+    {
+        attackPs.Play();
     }
 
     private void AttackFinished()
@@ -279,14 +297,14 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     public GameObject Timer;
     [SerializeField] bool gano = false;
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Meta")
         {
             Gano();
             gano = true;
         }
-    }
+    }*/
 
     public void Gano()
     {
