@@ -16,6 +16,8 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     AudioManager audioM;
 
+    [SerializeField] private ParticleSystem attackPs;
+
     [Header("Camera")]
     public Camera cameraAct;
 
@@ -111,6 +113,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         if (isAttacking)
         {
             _networkAnimator.Animator.SetBool("isAttack", true);
+            attackPs.Play();
         }
     }
 
@@ -274,7 +277,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     public GameObject victoryScreen;
     public GameObject defeatScreen;
     public GameObject Timer;
-    [SerializeField] NetworkBool gano = false;
+    [SerializeField] bool gano = false;
 
     private void OnTriggerEnter(Collider other)
     {
