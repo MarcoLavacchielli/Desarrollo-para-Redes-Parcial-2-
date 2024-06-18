@@ -10,12 +10,12 @@ public class Meta : NetworkBehaviour
     [SerializeField]
     private PlayerHostMovement firstPlayerModel;
 
-    [SerializeField] private NetworkBool UnoGano;
-    [SerializeField] private NetworkBool DosGano;
+    [SerializeField] private bool UnoGano;
+    [SerializeField] private bool DosGano;
 
     //[SerializeField] GameObject victoryScreen, defeatScreen;
 
-    [SerializeField] private NetworkBool termino = false;
+    [SerializeField] private bool termino = false;
 
 
     public void AddPlayerModel(PlayerHostMovement playerModel)

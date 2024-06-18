@@ -113,7 +113,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         if (isAttacking)
         {
             _networkAnimator.Animator.SetBool("isAttack", true);
-            attackPs.Play();
         }
     }
 
@@ -231,6 +230,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             isAttacking = true;
             nextAttackTime = Time.time + cooldown;
+            attackPs.Play();
             PerformAttack();
         }
     }
