@@ -4,12 +4,10 @@ using UnityEngine;
 using Fusion;
 
 [RequireComponent(typeof(PlayerHostMovement))]
-[RequireComponent(typeof(PlayerHostGun))]
 [RequireComponent(typeof(LifeHostHandler))]
 public class PlayerHostController : NetworkBehaviour
 {
     PlayerHostMovement _playerHostMovement;
-    PlayerHostGun _playerHostGun;
     NetworkInputData _networkInputData;
 
     Vector3 _direction;
@@ -17,7 +15,6 @@ public class PlayerHostController : NetworkBehaviour
     void Awake()
     {
         _playerHostMovement = GetComponent<PlayerHostMovement>();
-        _playerHostGun = GetComponent<PlayerHostGun>();
         GetComponent<LifeHostHandler>().OnEnableMyController += 
             (controller) => enabled = controller;
     }
@@ -44,11 +41,6 @@ public class PlayerHostController : NetworkBehaviour
         if(_networkInputData.isJumpPressed)
         {
             _playerHostMovement.Jump();
-        }
-
-        if (_networkInputData.isFirePressed)
-        {
-            _playerHostGun.Shoot();
         }
 
         if (_networkInputData.isCrouchPressed)
