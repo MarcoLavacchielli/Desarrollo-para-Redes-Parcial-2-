@@ -294,13 +294,17 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     public GameObject defeatScreen;
     public GameObject Timer;
     [SerializeField] bool gano = false;
+    [SerializeField] bool perdio = false;
 
     public void Gano()
     {
-        victoryScreen.SetActive(true);
-        defeatScreen = null;
-        gano = true;
-        audioM.PlaySFX(3);
+        if (!perdio)
+        {
+            victoryScreen.SetActive(true);
+            defeatScreen = null;
+            gano = true;
+            audioM.PlaySFX(3);
+        }
     }
 
     public void Perdio()
@@ -309,11 +313,8 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             defeatScreen.SetActive(true);
             victoryScreen = null;
+            perdio = true;
             audioM.PlaySFX(4);
-        }
-        else
-        {
-            Gano();
         }
     }
 }
