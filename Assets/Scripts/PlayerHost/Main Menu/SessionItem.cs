@@ -16,9 +16,6 @@ public class SessionItem : MonoBehaviour
         _sessionName.text = session.Name;
         _playerAmount.text = $"{session.PlayerCount}/{session.MaxPlayers}";
 
-        /*if (session.PlayerCount < session.MaxPlayers)
-            _joinButton.enabled = true;*/
-
         _joinButton.enabled = session.PlayerCount < session.MaxPlayers;
 
         _joinButton.onClick.AddListener(() => onClick(session));

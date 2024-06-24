@@ -295,15 +295,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     public GameObject Timer;
     [SerializeField] bool gano = false;
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Meta")
-        {
-            Gano();
-            gano = true;
-        }
-    }*/
-
     public void Gano()
     {
         victoryScreen.SetActive(true);

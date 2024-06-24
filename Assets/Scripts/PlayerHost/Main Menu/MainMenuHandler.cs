@@ -60,11 +60,11 @@ public class MainMenuHandler : MonoBehaviour
     {
         while(_statusPanel.activeInHierarchy)
         {
-            _statusText.text = "Joining Lobby.";
+            _statusText.text = "Cargando Epicidad.";
             yield return new WaitForSeconds(0.2f);
-            _statusText.text = "Joining Lobby..";
+            _statusText.text = "Cargando Epicidad..";
             yield return new WaitForSeconds(0.2f);
-            _statusText.text = "Joining Lobby...";
+            _statusText.text = "Cargando Epicidad...";
             yield return new WaitForSeconds(0.2f);
         }
     }

@@ -24,16 +24,14 @@ public class SessionBrowserHandler : MonoBehaviour
 
     void ReceiveSessionList(List<SessionInfo> allSessions)
     {
-        //Limpiar todas las sesiones
         ClearPreviousChildren();
 
-        //Checkeo de lista nula
         if(allSessions.Count == 0)
         {
             NoSessionFound();
             return;
         }
-        //Por cada sesion, instancear un nuevo SessionItem
+
         foreach(var session in allSessions) 
         {
             AddNewSessionItem(session);

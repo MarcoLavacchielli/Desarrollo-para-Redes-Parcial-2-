@@ -7,9 +7,6 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour, INetworkRunnerCallbacks
 {
-
-    //runner.SessionInfo.PlayerCount contador propio de fusion para contar cantidad de jugadores. Si lo van a agregar a una coleccion de elementos, asegurense de restar 1 valor al count.
-
     [SerializeField] NetworkHostPlayer _playerPrefab;
     LocalPlayerInputs _playerInputs;
 
@@ -33,7 +30,7 @@ public class Spawner : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnDisconnectedFromServer(NetworkRunner runner) 
     {
-        //Activarian el canvas de derrota al jugador 2
+        //Marco, aca no me funcion lo de la derrota, tiro error
         runner.Shutdown();
     }
 
