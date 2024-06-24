@@ -75,8 +75,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             Debug.LogError("AudioManager not found in the scene!");
         }
-
-        GetComponent<LifeHostHandler>().OnRespawn += () => TeleportToPosition(transform.position);
     }
 
     protected override void Awake()

@@ -4,7 +4,6 @@ using UnityEngine;
 using Fusion;
 
 [RequireComponent(typeof(PlayerHostMovement))]
-[RequireComponent(typeof(LifeHostHandler))]
 public class PlayerHostController : NetworkBehaviour
 {
     PlayerHostMovement _playerHostMovement;
@@ -15,8 +14,6 @@ public class PlayerHostController : NetworkBehaviour
     void Awake()
     {
         _playerHostMovement = GetComponent<PlayerHostMovement>();
-        GetComponent<LifeHostHandler>().OnEnableMyController += 
-            (controller) => enabled = controller;
     }
 
     private void OnEnable()
