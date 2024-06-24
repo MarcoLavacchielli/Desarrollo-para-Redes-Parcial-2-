@@ -54,6 +54,15 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             HandleInputs();
         }
+
+        if (gano == true)
+        {
+            audioM.PlaySFX(3);
+        }
+        else if (perdio == true)
+        {
+            audioM.PlaySFX(4);
+        }
     }
 
     public override void Spawned()
@@ -303,7 +312,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             victoryScreen.SetActive(true);
             defeatScreen = null;
             gano = true;
-            audioM.PlaySFX(3);
+            //audioM.PlaySFX(3);
         }
     }
 
@@ -314,7 +323,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             defeatScreen.SetActive(true);
             victoryScreen = null;
             perdio = true;
-            audioM.PlaySFX(4);
+            //audioM.PlaySFX(4);
         }
     }
 }
