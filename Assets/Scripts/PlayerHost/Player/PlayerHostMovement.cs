@@ -305,8 +305,8 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     public GameObject victoryScreen;
     public GameObject defeatScreen;
     public GameObject Timer;
-    [SerializeField] bool gano = false;
-    [SerializeField] bool perdio = false;
+    [SerializeField] NetworkBool gano = false;
+    [SerializeField] NetworkBool perdio = false;
 
     public void Gano()
     {
