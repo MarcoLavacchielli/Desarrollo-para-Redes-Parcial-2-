@@ -316,6 +316,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             defeatScreen = null;
             gano = true;
             audioM.PlaySFX(3);
+            audioM.StopSFX(4);
         }
     }
 
@@ -327,6 +328,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             victoryScreen = null;
             perdio = true;
             audioM.PlaySFX(4);
+            audioM.StopSFX(3);
         }
     }
 }
