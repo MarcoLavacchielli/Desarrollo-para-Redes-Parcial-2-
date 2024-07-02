@@ -17,15 +17,27 @@ public class Meta : NetworkBehaviour
 
     [SerializeField] private bool termino = false;
 
-
     public void AddPlayerModel(PlayerHostMovement playerModel)
     {
-        playerScreensList.Add(playerModel);
+        if (playerModel.Object.HasStateAuthority)
+        {
+            playerScreensList.Insert(0, playerModel);
+        }
+        else
+        {
+            if (playerScreensList.Count > 0 && playerScreensList[0].Object.HasStateAuthority)
+            {
+                playerScreensList.Insert(1, playerModel);
+            }
+            else
+            {
+                playerScreensList.Insert(0, playerModel);
+            }
+        }
     }
 
     private void Update()
     {
-
         if (termino == false)
         {
             listManagement();
@@ -34,18 +46,15 @@ public class Meta : NetworkBehaviour
         {
             playerScreensList = null;
         }
-
     }
 
     void listManagement()
     {
         PlayerHostMovement[] playerModelsInScene = FindObjectsOfType<PlayerHostMovement>();
+        playerScreensList.Clear();
         foreach (PlayerHostMovement playerModel in playerModelsInScene)
         {
-            if (!playerScreensList.Contains(playerModel))
-            {
-                AddPlayerModel(playerModel);
-            }
+            AddPlayerModel(playerModel);
         }
     }
 
