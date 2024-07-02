@@ -310,25 +310,21 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     public void Gano()
     {
-        if (perdio!=true)
+        if (Object.HasInputAuthority)
         {
             victoryScreen.SetActive(true);
-            defeatScreen = null;
-            gano = true;
             audioM.PlaySFX(3);
-            audioM.StopSFX(4);
         }
+        gano = true;
     }
 
     public void Perdio()
     {
-        if (gano!=true)
+        if (Object.HasInputAuthority)
         {
             defeatScreen.SetActive(true);
-            victoryScreen = null;
-            perdio = true;
             audioM.PlaySFX(4);
-            audioM.StopSFX(3);
         }
+        perdio = true;
     }
 }

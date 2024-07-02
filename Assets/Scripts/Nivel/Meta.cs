@@ -80,15 +80,26 @@ public class Meta : NetworkBehaviour
     {
         if (UnoGano)
         {
-            playerScreensList[0].Gano();
-            playerScreensList[1].Perdio();
-            termino = true;
+            if (playerScreensList[0].Object.HasInputAuthority)
+            {
+                playerScreensList[0].Gano();
+            }
+            else if (playerScreensList[1].Object.HasInputAuthority)
+            {
+                playerScreensList[1].Perdio();
+            }
         }
         else if (DosGano)
         {
-            playerScreensList[1].Gano();
-            playerScreensList[0].Perdio();
-            termino = true;
+            if (playerScreensList[1].Object.HasInputAuthority)
+            {
+                playerScreensList[1].Gano();
+            }
+            else if (playerScreensList[0].Object.HasInputAuthority)
+            {
+                playerScreensList[0].Perdio();
+            }
         }
+        termino = true;
     }
 }
