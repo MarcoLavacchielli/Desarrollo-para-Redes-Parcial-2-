@@ -17,6 +17,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     AudioManager audioM;
 
     [SerializeField] private ParticleSystem attackPs;
+    [SerializeField] private ParticleSystem stunPs;
 
     [Header("Camera")]
     public Camera cameraAct;
@@ -40,11 +41,15 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     [Header("Ataque")]
     [SerializeField] private float attackRadius = 1.5f;
     [SerializeField] private LayerMask objLayer;
+    [SerializeField] private LayerMask playerLayer;
     public int danio;
     [Networked(OnChanged = nameof(OnAttackingChanged))]
     private bool isAttacking { get; set; }
     [SerializeField] private float cooldown = 0.5f;
     private float nextAttackTime = 0f;
+
+    [SerializeField] private bool isStunned = false;
+    [SerializeField] private float stunDuration = 1.0f;
 
     public override void FixedUpdateNetwork()
     {
@@ -55,18 +60,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             HandleInputs();
         }
     }
-
-    /*private void Update()
-    {
-        if (gano == true)
-        {
-            audioM.PlaySFX(3);
-        }
-        if (perdio == true)
-        {
-            audioM.PlaySFX(4);
-        }
-    }*/
 
     public override void Spawned()
     {
@@ -129,6 +122,11 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     private void HandleInputs()
     {
+        if (isStunned)
+        {
+            return; // Ignorar los inputs si está aturdido
+        }
+
         if (_inputs.isJumpPressed)
         {
             audioM.PlaySFX(1);
@@ -257,10 +255,6 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         yield return new WaitForSeconds(0.5f);
         AttackDestroyer();
         AttackFinished();
-
-        //
-
-        //
     }
 
     static void OnAttackingChanged(Changed<PlayerHostMovement> changed)
@@ -284,9 +278,48 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     private void AttackDestroyer()
     {
-        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRadius, objLayer);
+        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRadius, playerLayer);
+
+        if (hitEnemies.Length > 0)
+        {
+            Debug.Log("Attack hit detected");
+        }
+        else
+        {
+            Debug.Log("No players detected in attack radius");
+        }
 
         foreach (Collider hitObject in hitEnemies)
+        {
+            PlayerHostMovement enemyPlayer = hitObject.GetComponent<PlayerHostMovement>();
+
+            if (enemyPlayer != null && enemyPlayer != this) // Verificar que no sea el mismo jugador
+            {
+                Debug.Log("Stunning player: " + hitObject.name);
+                enemyPlayer.Stun();
+            }
+            else if (enemyPlayer == this)
+            {
+                Debug.Log("Ignoring self stun for: " + hitObject.name);
+            }
+            else
+            {
+                Fusion.NetworkObject networkObject = hitObject.GetComponent<Fusion.NetworkObject>();
+
+                if (networkObject != null)
+                {
+                    Runner.Despawn(networkObject);
+                }
+                else
+                {
+                    Debug.LogWarning("El objeto " + hitObject.name + " no tiene un componente NetworkObject adjunto.");
+                }
+            }
+        }
+
+        Collider[] hitObj = Physics.OverlapSphere(transform.position, attackRadius, objLayer);
+
+        foreach (Collider hitObject in hitObj)
         {
             Fusion.NetworkObject networkObject = hitObject.GetComponent<Fusion.NetworkObject>();
 
@@ -299,6 +332,27 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
                 Debug.LogWarning("El objeto " + hitObject.name + " no tiene un componente NetworkObject adjunto.");
             }
         }
+    }
+
+    public void Stun()
+    {
+        if (!isStunned)
+        {
+            StartCoroutine(StunCoroutine());
+        }
+    }
+
+    private IEnumerator StunCoroutine()
+    {
+        Debug.Log("Player stunned: " + gameObject.name);
+        isStunned = true;
+        float originalSpeed = maxSpeed;
+        maxSpeed = 0f;
+        stunPs.Play(); // Play particle system
+        yield return new WaitForSeconds(stunDuration);
+        maxSpeed = originalSpeed;
+        isStunned = false;
+        Debug.Log("Player recovered from stun: " + gameObject.name);
     }
 
     [Header("Camera")]
