@@ -171,6 +171,11 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         maxSpeed = _originalSpeed;
     }
 
+    public void ApplyJumpForce(float jumpForce)
+    {
+        Velocity = new Vector3(Velocity.x, jumpForce, Velocity.z); 
+    }
+
     public void Sprint()
     {
         if (transform.localScale == new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z))

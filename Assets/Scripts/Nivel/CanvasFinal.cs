@@ -16,7 +16,7 @@ public class CanvasFinal : MonoBehaviour
 
     public void goToMainMenu(NetworkRunner runner)
     {
-        SceneManager.LoadScene("Main Menu");
         runner.Shutdown();
+        SceneManager.LoadScene("Main Menu");
     }
 }
