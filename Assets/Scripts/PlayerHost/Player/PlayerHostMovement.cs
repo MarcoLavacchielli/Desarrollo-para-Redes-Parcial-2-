@@ -9,8 +9,11 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     private NetworkInputData _inputs;
 
-    private Vector3 _originalScale;
-    private float _originalSpeed;
+    private Vector3 originalScale;
+    private float originalSpeed;
+    private float originalSprintSpeed;
+    private float originalCrouchSpeed;
+    private float originalSlideSpeed;
 
     [SerializeField] private float originalSlideForce; // Fuerza del slide original
 
@@ -85,11 +88,14 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     protected override void Awake()
     {
         base.Awake();
-        _originalScale = transform.localScale;
-        _originalSpeed = maxSpeed;
+        originalScale = transform.localScale;
+        originalSpeed = maxSpeed;
 
         originalSlideForce = slideForce;
-    }
+        originalSprintSpeed = sprintVelocity;
+        originalCrouchSpeed = crouchSpeed;
+        originalSlideSpeed = slideSpeed;
+}
 
     private void UpdateAnimations()
     {
@@ -159,7 +165,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     public void Crouch()
     {
-        transform.localScale = new Vector3(_originalScale.x, crouchYScale, _originalScale.z);
+        transform.localScale = new Vector3(originalScale.x, crouchYScale, originalScale.z);
         Velocity += Vector3.down * 5f;
         maxSpeed = crouchSpeed;
     }
@@ -167,8 +173,8 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     public void Stand()
     {
         slideForce = 0f;
-        transform.localScale = _originalScale;
-        maxSpeed = _originalSpeed;
+        transform.localScale = originalScale;
+        maxSpeed = originalSpeed;
     }
 
     public void ApplyJumpForce(float jumpForce)
@@ -224,7 +230,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         slideForce = 0f;
         _isSliding = false;
         _slideTimer = 0f;
-        maxSpeed = _originalSpeed;
+        maxSpeed = originalSpeed;
         transform.localScale = new Vector3(transform.localScale.x, 1f, transform.localScale.z);
         StartCoroutine(SlideCooldown());
     }
@@ -358,6 +364,24 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         maxSpeed = originalSpeed;
         isStunned = false;
         Debug.Log("Player recovered from stun: " + gameObject.name);
+    }
+
+    public void SetSpeedMultiplier(float multiplier)
+    {
+        maxSpeed = originalSpeed * multiplier;
+        sprintVelocity = originalSprintSpeed * multiplier;
+        slideSpeed = originalSlideSpeed * multiplier;
+        crouchSpeed = originalCrouchSpeed * multiplier;
+        slideForce = originalSlideForce * multiplier;
+    }
+
+    public void ResetSpeedMultiplier()
+    {
+        maxSpeed = originalSpeed;
+        sprintVelocity = originalSprintSpeed;
+        slideSpeed = originalSlideSpeed;
+        crouchSpeed = originalCrouchSpeed;
+        slideForce = originalSlideForce;
     }
 
     [Header("Camera")]
