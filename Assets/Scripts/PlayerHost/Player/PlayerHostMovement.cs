@@ -384,6 +384,11 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         slideForce = originalSlideForce;
     }
 
+    public void teleport(Vector3 pos)
+    {
+        gameObject.transform.position = pos;
+    }
+
     [Header("Camera")]
     public GameObject victoryScreen;
     public GameObject defeatScreen;
