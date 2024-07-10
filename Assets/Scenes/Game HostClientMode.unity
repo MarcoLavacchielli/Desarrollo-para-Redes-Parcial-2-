@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sideToSideSpeed: 5
   sideToSideRange: 3
-  forwardSpeed: -1
+  forwardSpeed: 0
 --- !u!1001 &24283762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2579,6 +2579,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 5d39bb03324242e4d9c188845331307b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 675851083}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 5d39bb03324242e4d9c188845331307b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 675851085}
   m_SourcePrefab: {fileID: 100100000, guid: 5d39bb03324242e4d9c188845331307b, type: 3}
 --- !u!1 &675851082 stripped
 GameObject:
@@ -2611,6 +2614,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5d39bb03324242e4d9c188845331307b, type: 3}
   m_PrefabInstance: {fileID: 675851081}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &675851085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675851082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 60a24388e8284039b223a2a397189e26
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1 &680892575
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,6 +3070,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 5d39bb03324242e4d9c188845331307b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 820872726}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 5d39bb03324242e4d9c188845331307b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 820872728}
   m_SourcePrefab: {fileID: 100100000, guid: 5d39bb03324242e4d9c188845331307b, type: 3}
 --- !u!1 &820872725 stripped
 GameObject:
@@ -3076,6 +3105,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5d39bb03324242e4d9c188845331307b, type: 3}
   m_PrefabInstance: {fileID: 820872724}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &820872728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820872725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 3307ae8c545a46649e968bd3edd95b43
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1 &838442522
 GameObject:
   m_ObjectHideFlags: 0
@@ -5363,6 +5415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   wallObj: {fileID: 446594749}
+  LineaSelf: {fileID: 1428004576}
   countdownText: {fileID: 1660861447}
   destroy: {fileID: 1802408590}
   audioM: {fileID: 1139148217}
@@ -16540,6 +16593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   wallObj: {fileID: 5909646565427898388}
+  LineaSelf: {fileID: 8637698256131982291}
   countdownText: {fileID: 1660861447}
   destroy: {fileID: 1802408590}
   audioM: {fileID: 1139148217}

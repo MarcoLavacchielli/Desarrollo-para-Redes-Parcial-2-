@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class LineaDeSalida : NetworkBehaviour
 {
     public NetworkObject wallObj;
+    public NetworkObject LineaSelf;
     private int playersInside = 0;
     [Networked(OnChanged = nameof(OnCountdownChanged))]
     private NetworkBool countingDown { get; set; }
@@ -79,6 +80,8 @@ public class LineaDeSalida : NetworkBehaviour
             {
                 objDestroyed = true;
                 Runner.Despawn(wallObj);
+                //Destruyo la linea
+                Runner.Despawn(LineaSelf);
             }
         }
     }
