@@ -12,6 +12,9 @@ public class SideToSideAndForwardMovement : MonoBehaviour
 
     private float time;
 
+    private bool isRotating = false;
+    private int playersInScene = 0;
+
     void Start()
     {
         startPosition = transform.position;
@@ -19,12 +22,49 @@ public class SideToSideAndForwardMovement : MonoBehaviour
 
     void Update()
     {
-        time += Time.deltaTime;
 
-        float newX = startPosition.x + Mathf.Sin(time * sideToSideSpeed) * sideToSideRange;
+        CountPlayers();
 
-        float newZ = startPosition.z + time * forwardSpeed;
+        if (isRotating)
+        {
+            time += Time.deltaTime;
 
-        transform.position = new Vector3(newX, transform.position.y, newZ);
+            float newX = startPosition.x + Mathf.Sin(time * sideToSideSpeed) * sideToSideRange;
+
+            float newZ = startPosition.z + time * forwardSpeed;
+
+            transform.position = new Vector3(newX, transform.position.y, newZ);
+        }
+
+    }
+
+    private void CountPlayers()
+    {
+        var players = FindObjectsOfType<PlayerHostMovement>();
+        playersInScene = players.Length;
+
+        if (playersInScene >= 2)
+        {
+            StartRotating();
+        }
+        else
+        {
+            StopRotating();
+        }
+    }
+
+    public void OnPlayerCountChanged()
+    {
+        CountPlayers();
+    }
+
+    private void StartRotating()
+    {
+        isRotating = true;
+    }
+
+    private void StopRotating()
+    {
+        isRotating = false;
     }
 }
