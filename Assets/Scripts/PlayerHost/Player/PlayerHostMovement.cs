@@ -53,6 +53,8 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     [SerializeField] private bool isStunned = false;
     [SerializeField] private float stunDuration = 1.0f;
+    [Networked(OnChanged = nameof(OnStunChanged))]
+    private bool isStun { get; set; }
 
     public override void FixedUpdateNetwork()
     {
@@ -277,9 +279,23 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         if (!oldFiring && currentFiring) changed.Behaviour.TurnOnParticleSystem();
     }
 
+    static void OnStunChanged(Changed<PlayerHostMovement> changed)
+    {
+        bool currentStun = changed.Behaviour.isStun;
+        changed.LoadOld();
+        bool oldStun = changed.Behaviour.isStun;
+
+        if (!oldStun && currentStun) changed.Behaviour.TurnOnStunParticleSystem();
+    }
+
     void TurnOnParticleSystem()
     {
         attackPs.Play();
+    }
+
+    void TurnOnStunParticleSystem()
+    {
+        stunPs.Play();
     }
 
     private void AttackFinished()
@@ -357,12 +373,14 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     {
         Debug.Log("Player stunned: " + gameObject.name);
         isStunned = true;
+        isStun = true;
         float originalSpeed = maxSpeed;
         maxSpeed = 0f;
         stunPs.Play(); // Play particle system
         yield return new WaitForSeconds(stunDuration);
         maxSpeed = originalSpeed;
         isStunned = false;
+        isStun = false;
         Debug.Log("Player recovered from stun: " + gameObject.name);
     }
 
