@@ -17,10 +17,12 @@ public class LineaDeSalida : NetworkBehaviour
     private float countdownTimer { get; set; } = 3f;
     public TMP_Text countdownText;
 
-    private NetworkBool objDestroyed = false;
+    public NetworkBool objDestroyed = false;
 
     [SerializeField] ParticleSystem destroy;
     [SerializeField] AudioManager audioM;
+
+    private Vector3 escondido = new Vector3(0f, -10f, 0f);
 
     private void Update()
     {
@@ -81,7 +83,8 @@ public class LineaDeSalida : NetworkBehaviour
                 objDestroyed = true;
                 Runner.Despawn(wallObj);
                 //Destruyo la linea
-                Runner.Despawn(LineaSelf);
+                //Runner.Despawn(LineaSelf);
+                LineaSelf.transform.position = escondido;
             }
         }
     }

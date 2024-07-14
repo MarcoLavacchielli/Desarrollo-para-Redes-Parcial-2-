@@ -11,15 +11,17 @@ public class PlatformMover : MonoBehaviour
     private float waitCounter = 0f;
     private bool waiting = false;
 
-    private bool isRotating = false;
-    private int playersInScene = 0;
+    [SerializeField] private LineaDeSalida lineaDeSalida;
+
+    private void Start()
+    {
+        lineaDeSalida = FindObjectOfType<LineaDeSalida>();
+    }
 
     void Update()
     {
 
-        CountPlayers();
-
-        if (isRotating)
+        if (lineaDeSalida != null && lineaDeSalida.objDestroyed)
         {
             if (waypoints.Length == 0)
                 return;
@@ -60,35 +62,5 @@ public class PlatformMover : MonoBehaviour
         }
         if (waypoints.Length > 1)
             Gizmos.DrawLine(waypoints[waypoints.Length - 1].position, waypoints[0].position);
-    }
-
-    private void CountPlayers()
-    {
-        var players = FindObjectsOfType<PlayerHostMovement>();
-        playersInScene = players.Length;
-
-        if (playersInScene >= 2)
-        {
-            StartRotating();
-        }
-        else
-        {
-            StopRotating();
-        }
-    }
-
-    public void OnPlayerCountChanged()
-    {
-        CountPlayers();
-    }
-
-    private void StartRotating()
-    {
-        isRotating = true;
-    }
-
-    private void StopRotating()
-    {
-        isRotating = false;
     }
 }

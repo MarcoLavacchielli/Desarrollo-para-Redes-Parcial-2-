@@ -12,20 +12,17 @@ public class SideToSideAndForwardMovement : MonoBehaviour
 
     private float time;
 
-    private bool isRotating = false;
-    private int playersInScene = 0;
+    [SerializeField] private LineaDeSalida lineaDeSalida;
 
     void Start()
     {
         startPosition = transform.position;
+        lineaDeSalida = FindObjectOfType<LineaDeSalida>();
     }
 
     void Update()
     {
-
-        CountPlayers();
-
-        if (isRotating)
+        if (lineaDeSalida != null && lineaDeSalida.objDestroyed)
         {
             time += Time.deltaTime;
 
@@ -36,35 +33,5 @@ public class SideToSideAndForwardMovement : MonoBehaviour
             transform.position = new Vector3(newX, transform.position.y, newZ);
         }
 
-    }
-
-    private void CountPlayers()
-    {
-        var players = FindObjectsOfType<PlayerHostMovement>();
-        playersInScene = players.Length;
-
-        if (playersInScene >= 2)
-        {
-            StartRotating();
-        }
-        else
-        {
-            StopRotating();
-        }
-    }
-
-    public void OnPlayerCountChanged()
-    {
-        CountPlayers();
-    }
-
-    private void StartRotating()
-    {
-        isRotating = true;
-    }
-
-    private void StopRotating()
-    {
-        isRotating = false;
     }
 }

@@ -21,8 +21,10 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     AudioManager audioM;
 
+    [Header("Camera")]
     [SerializeField] private ParticleSystem attackPs;
     [SerializeField] private ParticleSystem stunPs;
+    [SerializeField] private ParticleSystem boostPs;
 
     [Header("Camera")]
     public Camera cameraAct;
@@ -31,6 +33,10 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     [SerializeField] private int capsuleAmount = 3;
     private float boostTime = 5f;
     [SerializeField] private TextMeshProUGUI capsuleText;
+    [Networked(OnChanged = nameof(OnBoostChanged))]
+    private bool isBoosting { get; set; } 
+
+    [SerializeField] private bool boosteanding = false;
 
     [Header("Crouch")]
     public float crouchSpeed = 1.0f;
@@ -104,7 +110,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         originalSprintSpeed = sprintVelocity;
         originalCrouchSpeed = crouchSpeed;
         originalSlideSpeed = slideSpeed;
-}
+    }
 
     private void UpdateAnimations()
     {
@@ -188,7 +194,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     public void ApplyJumpForce(float jumpForce)
     {
-        Velocity = new Vector3(Velocity.x, jumpForce, Velocity.z); 
+        Velocity = new Vector3(Velocity.x, jumpForce, Velocity.z);
     }
 
     public void Sprint()
@@ -295,6 +301,15 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         if (!oldStun && currentStun) changed.Behaviour.TurnOnStunParticleSystem();
     }
 
+    static void OnBoostChanged(Changed<PlayerHostMovement> changed)
+    {
+        bool currentBoosting = changed.Behaviour.isBoosting;
+        changed.LoadOld();
+        bool oldBoosting = changed.Behaviour.isBoosting;
+
+        if (!oldBoosting && currentBoosting) changed.Behaviour.TurnOnBoostParticleSystem();
+    }
+
     void TurnOnParticleSystem()
     {
         attackPs.Play();
@@ -303,6 +318,11 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     void TurnOnStunParticleSystem()
     {
         stunPs.Play();
+    }
+
+    void TurnOnBoostParticleSystem()
+    {
+        boostPs.Play();
     }
 
     private void AttackFinished()
@@ -378,11 +398,13 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     public void Boost()
     {
-        if (capsuleAmount > 0)
+        if (capsuleAmount > 0 && boosteanding == false)
         {
             capsuleAmount -= 1;
+            boosteanding = true;
             UpdateCapsuleText();
             SetSpeedMultiplier(2f);
+            isBoosting = true; // Actualiza el estado de boost
             StartCoroutine(ResetBoost());
         }
     }
@@ -395,7 +417,9 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     private IEnumerator ResetBoost()
     {
         yield return new WaitForSeconds(boostTime);
-        ResetSpeedMultiplier(); 
+        ResetSpeedMultiplier();
+        isBoosting = false; // Restablece el estado de boost
+        boosteanding = false;
     }
 
     private IEnumerator StunCoroutine()
