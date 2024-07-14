@@ -2,6 +2,8 @@ using Fusion;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHostMovement : NetworkCharacterControllerPrototype
 {
@@ -24,6 +26,11 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
 
     [Header("Camera")]
     public Camera cameraAct;
+
+    [Header("Boosts")]
+    [SerializeField] private int capsuleAmount = 3;
+    private float boostTime = 5f;
+    [SerializeField] private TextMeshProUGUI capsuleText;
 
     [Header("Crouch")]
     public float crouchSpeed = 1.0f;
@@ -367,6 +374,28 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             StartCoroutine(StunCoroutine());
         }
+    }
+
+    public void Boost()
+    {
+        if (capsuleAmount > 0)
+        {
+            capsuleAmount -= 1;
+            UpdateCapsuleText();
+            SetSpeedMultiplier(2f);
+            StartCoroutine(ResetBoost());
+        }
+    }
+
+    private void UpdateCapsuleText()
+    {
+        capsuleText.text = capsuleAmount.ToString();
+    }
+
+    private IEnumerator ResetBoost()
+    {
+        yield return new WaitForSeconds(boostTime);
+        ResetSpeedMultiplier(); 
     }
 
     private IEnumerator StunCoroutine()

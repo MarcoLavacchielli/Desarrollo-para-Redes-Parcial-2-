@@ -65,5 +65,10 @@ public class PlayerHostController : NetworkBehaviour
             _playerHostMovement.Attack();
         }
 
+        if (_networkInputData.isCapsulePressed)
+        {
+            _playerHostMovement.Boost();
+        }
+
     }
 }
