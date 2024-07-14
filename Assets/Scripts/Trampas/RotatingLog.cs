@@ -1,9 +1,12 @@
+using Fusion;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class RotatingLog : MonoBehaviour
+public class RotatingLog : NetworkBehaviour
 {
     public float rotationSpeed = 10f;
-    [SerializeField] private LineaDeSalida lineaDeSalida;
+    private LineaDeSalida lineaDeSalida;
 
     private void Start()
     {
@@ -12,8 +15,7 @@ public class RotatingLog : MonoBehaviour
 
     private void Update()
     {
-
-        if(lineaDeSalida != null && lineaDeSalida.objDestroyed)
+        if (lineaDeSalida != null && lineaDeSalida.objDestroyed)
         {
             transform.Rotate(Vector3.up * -rotationSpeed * Time.deltaTime);
         }

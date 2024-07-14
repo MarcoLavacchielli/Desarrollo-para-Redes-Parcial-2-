@@ -17,7 +17,8 @@ public class LineaDeSalida : NetworkBehaviour
     private float countdownTimer { get; set; } = 3f;
     public TMP_Text countdownText;
 
-    public NetworkBool objDestroyed = false;
+    [Networked]
+    public NetworkBool objDestroyed { get; set; } = false;
 
     [SerializeField] ParticleSystem destroy;
     [SerializeField] AudioManager audioM;

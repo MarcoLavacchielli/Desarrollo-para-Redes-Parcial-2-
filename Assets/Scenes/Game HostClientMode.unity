@@ -443,6 +443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 13093578}
   - component: {fileID: 13093579}
+  - component: {fileID: 13093580}
   m_Layer: 0
   m_Name: Puerta que se mueve
   m_TagString: Untagged
@@ -483,6 +484,30 @@ MonoBehaviour:
   sideToSideSpeed: 1
   sideToSideRange: 3
   forwardSpeed: 0
+  lineaDeSalida: {fileID: 0}
+--- !u!114 &13093580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13093577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 8ba90d0d4fec424faa18e2f1917dc1a7
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &13109810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2001,6 +2026,7 @@ GameObject:
   - component: {fileID: 98425084}
   - component: {fileID: 98425083}
   - component: {fileID: 98425082}
+  - component: {fileID: 98425086}
   m_Layer: 0
   m_Name: Plataforma
   m_TagString: Untagged
@@ -2042,6 +2068,7 @@ MonoBehaviour:
   - {fileID: 1590754859}
   speed: 2
   waitTime: 0.5
+  lineaDeSalida: {fileID: 0}
 --- !u!65 &98425083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2113,6 +2140,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98425080}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &98425086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98425080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 15456b1e387c47c1ac1cb004eace401b
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &113643282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3173,6 +3223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 161364406}
   - component: {fileID: 161364407}
+  - component: {fileID: 161364408}
   m_Layer: 0
   m_Name: Puerta que se mueve (2)
   m_TagString: Untagged
@@ -3210,9 +3261,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4707b551af7e0fa40bb7924a5695cfe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideToSideSpeed: 2
+  sideToSideSpeed: 1.75
   sideToSideRange: 7
   forwardSpeed: 0
+  lineaDeSalida: {fileID: 0}
+--- !u!114 &161364408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161364405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 2c23bf9a757f4ce1b6257927a71156f7
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &162463887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7460,6 +7535,7 @@ GameObject:
   - component: {fileID: 402637522}
   - component: {fileID: 402637521}
   - component: {fileID: 402637520}
+  - component: {fileID: 402637524}
   m_Layer: 0
   m_Name: Plataforma
   m_TagString: Untagged
@@ -7501,6 +7577,7 @@ MonoBehaviour:
   - {fileID: 1715808862}
   speed: 2
   waitTime: 0.25
+  lineaDeSalida: {fileID: 0}
 --- !u!65 &402637521
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7572,6 +7649,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402637518}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &402637524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402637518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: aa4ef1f2c87f48c0a6c1886930f89956
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1 &410280566
 GameObject:
   m_ObjectHideFlags: 0
@@ -8873,6 +8973,7 @@ MonoBehaviour:
   spawnInterval: 1.25
   launchSpeed: 20
   timeDestroy: 0.75
+  lineaDeSalida: {fileID: 0}
 --- !u!65 &467412516
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9789,6 +9890,7 @@ MonoBehaviour:
   spawnInterval: 2
   launchSpeed: 45
   timeDestroy: 0.4
+  lineaDeSalida: {fileID: 0}
 --- !u!65 &526445308
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10137,6 +10239,7 @@ GameObject:
   - component: {fileID: 541574204}
   - component: {fileID: 541574203}
   - component: {fileID: 541574202}
+  - component: {fileID: 541574206}
   m_Layer: 0
   m_Name: Pisos elevados (11)
   m_TagString: Untagged
@@ -10159,7 +10262,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -10231,6 +10334,29 @@ Transform:
   - {fileID: 1649865785}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &541574206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541574201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 590078bcf00246bb9c3bd0eb2b1b9682
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &542447472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11196,7 +11322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108d4c363a61da546980c32a7b046cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 40
+  jumpForce: 30
 --- !u!65 &582966154
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11656,6 +11782,7 @@ MonoBehaviour:
   spawnInterval: 2
   launchSpeed: 40
   timeDestroy: 0.4
+  lineaDeSalida: {fileID: 0}
 --- !u!65 &610019637
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13003,7 +13130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108d4c363a61da546980c32a7b046cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 40
+  jumpForce: 30
 --- !u!65 &684720933
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15216,7 +15343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108d4c363a61da546980c32a7b046cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 40
+  jumpForce: 30
 --- !u!65 &824223450
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15406,6 +15533,7 @@ GameObject:
   - component: {fileID: 835234624}
   - component: {fileID: 835234623}
   - component: {fileID: 835234622}
+  - component: {fileID: 835234627}
   m_Layer: 0
   m_Name: Tronco que gira
   m_TagString: Untagged
@@ -15425,6 +15553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c248c7355490c9d4fb1a93dcbc697187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   rotationSpeed: 100
 --- !u!136 &835234623
 CapsuleCollider:
@@ -15524,6 +15653,30 @@ Transform:
   - {fileID: 252931899}
   m_Father: {fileID: 1843251378}
   m_LocalEulerAnglesHint: {x: 76.86, y: 0, z: 0}
+--- !u!114 &835234627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835234621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 055dc915c40c460094f251b171f215bb
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 835234622}
+  SimulationBehaviours: []
 --- !u!1 &838442522
 GameObject:
   m_ObjectHideFlags: 0
@@ -15558,6 +15711,80 @@ Transform:
   - {fileID: 680892576}
   m_Father: {fileID: 1843251378}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &842737058
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1476658333}
+    m_Modifications:
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 74.55478
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.3914022
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 11.683103
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 255.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736041903518109482, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+      propertyPath: m_Name
+      value: Paredes (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+--- !u!4 &842737059 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4958836014123816336, guid: 416ccb687a063a44a80cc7a56c9f635e, type: 3}
+  m_PrefabInstance: {fileID: 842737058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &843719306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7468388689787507663, guid: 930cd2a7862958c41a9c3ee6d6254179, type: 3}
@@ -15835,7 +16062,7 @@ Transform:
   m_GameObject: {fileID: 868136847}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: 105.69, y: 18.35, z: 284.36304}
+  m_LocalPosition: {x: 105.69, y: 18.35, z: 284.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15856,6 +16083,7 @@ GameObject:
   - component: {fileID: 875338290}
   - component: {fileID: 875338289}
   - component: {fileID: 875338288}
+  - component: {fileID: 875338292}
   m_Layer: 0
   m_Name: Pisos elevados (13)
   m_TagString: Untagged
@@ -15950,6 +16178,29 @@ Transform:
   - {fileID: 356241202}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &875338292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875338287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: e9e75365e7f74def9b758afccccd7bc5
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &878841296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19198,6 +19449,7 @@ GameObject:
   - component: {fileID: 1046390712}
   - component: {fileID: 1046390711}
   - component: {fileID: 1046390710}
+  - component: {fileID: 1046390714}
   m_Layer: 0
   m_Name: Pisos elevados (9)
   m_TagString: Untagged
@@ -19220,7 +19472,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -19292,6 +19544,29 @@ Transform:
   - {fileID: 917065896}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1046390714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046390709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 1eae408ca51e440c958912aa01e9d985
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &1046461354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20760,6 +21035,7 @@ MonoBehaviour:
   spawnInterval: 1.5
   launchSpeed: 30
   timeDestroy: 0.55
+  lineaDeSalida: {fileID: 0}
 --- !u!65 &1094010450
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20936,6 +21212,7 @@ GameObject:
   - component: {fileID: 1094307020}
   - component: {fileID: 1094307019}
   - component: {fileID: 1094307018}
+  - component: {fileID: 1094307023}
   m_Layer: 0
   m_Name: Tronco que gira (2)
   m_TagString: Untagged
@@ -20955,6 +21232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c248c7355490c9d4fb1a93dcbc697187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   rotationSpeed: 240
 --- !u!136 &1094307019
 CapsuleCollider:
@@ -21054,6 +21332,30 @@ Transform:
   - {fileID: 1041607497}
   m_Father: {fileID: 1843251378}
   m_LocalEulerAnglesHint: {x: 76.86, y: 0, z: 0}
+--- !u!114 &1094307023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094307017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 3bbf7b940fee4e8ab6b2035ae8d4e914
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 1094307018}
+  SimulationBehaviours: []
 --- !u!1001 &1096397162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22095,6 +22397,7 @@ GameObject:
   - component: {fileID: 1159141802}
   - component: {fileID: 1159141801}
   - component: {fileID: 1159141800}
+  - component: {fileID: 1159141804}
   m_Layer: 0
   m_Name: Tronco que gira (1)
   m_TagString: Untagged
@@ -22139,6 +22442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c248c7355490c9d4fb1a93dcbc697187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   rotationSpeed: 100
 --- !u!136 &1159141801
 CapsuleCollider:
@@ -22213,6 +22517,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159141798}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1159141804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159141798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 467ce5ab8a48482491f46bcd84c01633
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 1159141800}
+  SimulationBehaviours: []
 --- !u!1001 &1161372810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23143,6 +23471,7 @@ GameObject:
   - component: {fileID: 1202334241}
   - component: {fileID: 1202334240}
   - component: {fileID: 1202334239}
+  - component: {fileID: 1202334243}
   m_Layer: 0
   m_Name: Plataforma
   m_TagString: Untagged
@@ -23184,6 +23513,7 @@ MonoBehaviour:
   - {fileID: 472462615}
   speed: 2
   waitTime: 0.75
+  lineaDeSalida: {fileID: 0}
 --- !u!65 &1202334240
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23255,6 +23585,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202334237}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1202334243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202334237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: bbc4de7169e24bd8a2b3022cb123d67a
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &1204627891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23627,6 +23980,7 @@ GameObject:
   - component: {fileID: 1235289628}
   - component: {fileID: 1235289627}
   - component: {fileID: 1235289626}
+  - component: {fileID: 1235289630}
   m_Layer: 0
   m_Name: Plataforma
   m_TagString: Untagged
@@ -23668,6 +24022,7 @@ MonoBehaviour:
   - {fileID: 1050760878}
   speed: 2
   waitTime: 0.25
+  lineaDeSalida: {fileID: 0}
 --- !u!65 &1235289627
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23739,6 +24094,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235289624}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1235289630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235289624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 840480eca63d476594bcc9ce9d231977
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &1246331006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23871,7 +24249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108d4c363a61da546980c32a7b046cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 40
+  jumpForce: 30
 --- !u!65 &1251155522
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23956,6 +24334,7 @@ GameObject:
   - component: {fileID: 1258552872}
   - component: {fileID: 1258552871}
   - component: {fileID: 1258552870}
+  - component: {fileID: 1258552874}
   m_Layer: 0
   m_Name: Plataforma
   m_TagString: Untagged
@@ -23972,8 +24351,8 @@ Transform:
   m_GameObject: {fileID: 1258552868}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45, y: 0, z: -5}
-  m_LocalScale: {x: 2, y: 0.3, z: 2}
+  m_LocalPosition: {x: 45, y: 0.02, z: -4.99}
+  m_LocalScale: {x: 4.048407, y: 0.45645002, z: 4.1187005}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 410280567}
@@ -23997,6 +24376,7 @@ MonoBehaviour:
   - {fileID: 1925182881}
   speed: 2
   waitTime: 0.5
+  lineaDeSalida: {fileID: 0}
 --- !u!65 &1258552871
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24068,6 +24448,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258552868}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1258552874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258552868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 185878a384164a598558a3b6bb5c160f
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &1259827322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24217,19 +24620,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1476386147}
     m_Modifications:
     - target: {fileID: 7105843254811989403, guid: 4b222b023b81fba42b9587a29b0f4dfe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.670021
+      value: -32.94002
       objectReference: {fileID: 0}
     - target: {fileID: 7105843254811989403, guid: 4b222b023b81fba42b9587a29b0f4dfe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.06
+      value: 0.45000005
       objectReference: {fileID: 0}
     - target: {fileID: 7105843254811989403, guid: 4b222b023b81fba42b9587a29b0f4dfe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 142.86035
+      value: 143.87035
       objectReference: {fileID: 0}
     - target: {fileID: 7105843254811989403, guid: 4b222b023b81fba42b9587a29b0f4dfe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24237,15 +24640,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7105843254811989403, guid: 4b222b023b81fba42b9587a29b0f4dfe, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7105843254811989403, guid: 4b222b023b81fba42b9587a29b0f4dfe, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7105843254811989403, guid: 4b222b023b81fba42b9587a29b0f4dfe, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7105843254811989403, guid: 4b222b023b81fba42b9587a29b0f4dfe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24268,6 +24671,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b222b023b81fba42b9587a29b0f4dfe, type: 3}
+--- !u!4 &1262745147 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7105843254811989403, guid: 4b222b023b81fba42b9587a29b0f4dfe, type: 3}
+  m_PrefabInstance: {fileID: 1262745146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1263449758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24518,7 +24926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f93e8f4f327602429a9b970e0491879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 0.75
+  speedMultiplier: 0.85
 --- !u!65 &1285201198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25480,6 +25888,7 @@ GameObject:
   - component: {fileID: 1344210785}
   - component: {fileID: 1344210784}
   - component: {fileID: 1344210783}
+  - component: {fileID: 1344210787}
   m_Layer: 0
   m_Name: Pisos elevados (12)
   m_TagString: Untagged
@@ -25574,6 +25983,29 @@ Transform:
   - {fileID: 1639223609}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1344210787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344210782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 5353f7e1db0240749168d9b6cba33c0a
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1 &1354144808
 GameObject:
   m_ObjectHideFlags: 0
@@ -25586,6 +26018,7 @@ GameObject:
   - component: {fileID: 1354144811}
   - component: {fileID: 1354144810}
   - component: {fileID: 1354144809}
+  - component: {fileID: 1354144813}
   m_Layer: 0
   m_Name: Pisos elevados (15)
   m_TagString: Untagged
@@ -25680,6 +26113,29 @@ Transform:
   - {fileID: 1325887370}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1354144813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354144808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 95771b8910174dabbdcabbd324aa2ce3
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &1355889215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26617,6 +27073,7 @@ GameObject:
   - component: {fileID: 1390696856}
   - component: {fileID: 1390696855}
   - component: {fileID: 1390696854}
+  - component: {fileID: 1390696858}
   m_Layer: 0
   m_Name: Pisos elevados (16)
   m_TagString: Untagged
@@ -26639,7 +27096,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -26711,6 +27168,29 @@ Transform:
   - {fileID: 2123823}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1390696858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390696853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 55a26416193e45e99974bf4d4e254804
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1 &1391932367
 GameObject:
   m_ObjectHideFlags: 0
@@ -27030,7 +27510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108d4c363a61da546980c32a7b046cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 40
+  jumpForce: 30
 --- !u!65 &1396966663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28351,6 +28831,7 @@ GameObject:
   - component: {fileID: 1464328242}
   - component: {fileID: 1464328241}
   - component: {fileID: 1464328240}
+  - component: {fileID: 1464328244}
   m_Layer: 0
   m_Name: Pisos elevados (17)
   m_TagString: Untagged
@@ -28445,6 +28926,29 @@ Transform:
   - {fileID: 1011182401}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1464328244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464328239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: f739df31075a4a5d8e89d7962004e741
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1 &1464335316
 GameObject:
   m_ObjectHideFlags: 0
@@ -28959,6 +29463,7 @@ Transform:
   - {fileID: 355650483}
   - {fileID: 1802606407}
   - {fileID: 167879347}
+  - {fileID: 1262745147}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1476442746
@@ -29122,6 +29627,7 @@ Transform:
   - {fileID: 1799021667}
   - {fileID: 1476442747}
   - {fileID: 1433916939}
+  - {fileID: 842737059}
   - {fileID: 1856843620}
   - {fileID: 1819012181}
   - {fileID: 1771871443}
@@ -30426,6 +30932,7 @@ GameObject:
   - component: {fileID: 1543659291}
   - component: {fileID: 1543659290}
   - component: {fileID: 1543659289}
+  - component: {fileID: 1543659293}
   m_Layer: 0
   m_Name: Pisos elevados (14)
   m_TagString: Untagged
@@ -30448,7 +30955,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -30520,6 +31027,29 @@ Transform:
   - {fileID: 36944733}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1543659293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543659288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: c07f879d99cb4f3f9b2982961d8d6cd4
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!4 &1557623571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 551336802735321631, guid: 6aedd8862f5b4ac49a6acf18e2014a7d, type: 3}
@@ -30967,6 +31497,7 @@ GameObject:
   - component: {fileID: 1608306435}
   - component: {fileID: 1608306434}
   - component: {fileID: 1608306433}
+  - component: {fileID: 1608306437}
   m_Layer: 0
   m_Name: Tronco pelotitas
   m_TagString: Untagged
@@ -31005,6 +31536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c248c7355490c9d4fb1a93dcbc697187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   rotationSpeed: -100
 --- !u!136 &1608306434
 CapsuleCollider:
@@ -31079,6 +31611,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608306431}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1608306437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608306431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: df3e486886bd4e4a9c82be78faaa5514
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 1608306433}
+  SimulationBehaviours: []
 --- !u!1001 &1611106527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31168,6 +31724,7 @@ GameObject:
   - component: {fileID: 1611517112}
   - component: {fileID: 1611517111}
   - component: {fileID: 1611517110}
+  - component: {fileID: 1611517114}
   m_Layer: 0
   m_Name: Pisos elevados (18)
   m_TagString: Untagged
@@ -31190,7 +31747,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -31262,6 +31819,29 @@ Transform:
   - {fileID: 16806437}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1611517114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611517109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: ab52e95448d0489781f9d40d5bd6d54d
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &1612948126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32254,6 +32834,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1683277842}
   - component: {fileID: 1683277843}
+  - component: {fileID: 1683277844}
   m_Layer: 0
   m_Name: Puerta que se mueve (1)
   m_TagString: Untagged
@@ -32291,9 +32872,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4707b551af7e0fa40bb7924a5695cfe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideToSideSpeed: 1.75
+  sideToSideSpeed: 1.5
   sideToSideRange: 5
   forwardSpeed: 0
+  lineaDeSalida: {fileID: 0}
+--- !u!114 &1683277844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683277841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 162514fe64aa47468fc70efb7b4ccbeb
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!4 &1683492084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9176948594327680910, guid: b4d72b997d3165540a608be412ce481c, type: 3}
@@ -35087,6 +35692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1806512038}
   - component: {fileID: 1806512037}
+  - component: {fileID: 1806512039}
   m_Layer: 0
   m_Name: PisosFalsos
   m_TagString: Untagged
@@ -35101,26 +35707,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806512036}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27e45521b912dae4ab610fa6bb0e8a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   pair1:
-  - {fileID: 1046390709}
-  - {fileID: 1853076918}
+  - {fileID: 1046390714}
+  - {fileID: 1853076923}
   pair2:
-  - {fileID: 541574201}
-  - {fileID: 1344210782}
+  - {fileID: 541574206}
+  - {fileID: 1344210787}
   pair3:
-  - {fileID: 875338287}
-  - {fileID: 1543659288}
+  - {fileID: 875338292}
+  - {fileID: 1543659293}
   pair4:
-  - {fileID: 1390696853}
-  - {fileID: 1354144808}
+  - {fileID: 1390696858}
+  - {fileID: 1354144813}
   pair5:
-  - {fileID: 1464328239}
-  - {fileID: 1611517109}
+  - {fileID: 1464328244}
+  - {fileID: 1611517114}
 --- !u!4 &1806512038
 Transform:
   m_ObjectHideFlags: 0
@@ -35146,6 +35753,40 @@ Transform:
   - {fileID: 1611517113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1806512039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806512036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 2ee987d1b3cc402abda514ffe581cd07
+  NestedObjects:
+  - {fileID: 1046390714}
+  - {fileID: 1853076923}
+  - {fileID: 541574206}
+  - {fileID: 1344210787}
+  - {fileID: 875338292}
+  - {fileID: 1543659293}
+  - {fileID: 1390696858}
+  - {fileID: 1354144813}
+  - {fileID: 1464328244}
+  - {fileID: 1611517114}
+  NetworkedBehaviours:
+  - {fileID: 1806512037}
+  SimulationBehaviours: []
 --- !u!1 &1806676779
 GameObject:
   m_ObjectHideFlags: 0
@@ -35159,6 +35800,7 @@ GameObject:
   - component: {fileID: 1806676783}
   - component: {fileID: 1806676782}
   - component: {fileID: 1806676781}
+  - component: {fileID: 1806676785}
   m_Layer: 0
   m_Name: Plataforma
   m_TagString: Untagged
@@ -35199,6 +35841,7 @@ MonoBehaviour:
   - {fileID: 680892576}
   speed: 2
   waitTime: 0.75
+  lineaDeSalida: {fileID: 0}
 --- !u!65 &1806676782
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35270,6 +35913,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806676779}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1806676785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806676779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: d885df344100450fbf9dbb3130982743
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &1807235391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35410,7 +36076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108d4c363a61da546980c32a7b046cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 40
+  jumpForce: 30
 --- !u!65 &1812497149
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35720,7 +36386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2719049257054978298, guid: 121d5e8fe975ef64d9c28ee2a0d5d70a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 628.2184
+      value: 663.02167
       objectReference: {fileID: 0}
     - target: {fileID: 2719049257054978298, guid: 121d5e8fe975ef64d9c28ee2a0d5d70a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35732,7 +36398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2719049257054978298, guid: 121d5e8fe975ef64d9c28ee2a0d5d70a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 309.6
+      value: 308.81
       objectReference: {fileID: 0}
     - target: {fileID: 2719049257054978298, guid: 121d5e8fe975ef64d9c28ee2a0d5d70a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36761,6 +37427,7 @@ GameObject:
   - component: {fileID: 1853076921}
   - component: {fileID: 1853076920}
   - component: {fileID: 1853076919}
+  - component: {fileID: 1853076923}
   m_Layer: 0
   m_Name: Pisos elevados (10)
   m_TagString: Untagged
@@ -36855,6 +37522,29 @@ Transform:
   - {fileID: 2099268214}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1853076923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853076918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 19b1524eb7e247c88c14f82137d2f5f1
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!1001 &1854500563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40354,8 +41044,9 @@ MonoBehaviour:
   prefabToSpawn: {fileID: 5294323977638472950, guid: da9aaecae070c7e479735451cd29b590, type: 3}
   spawnPoint: {fileID: 1994811210}
   spawnInterval: 1
-  launchSpeed: 25
+  launchSpeed: 22
   timeDestroy: 0.7
+  lineaDeSalida: {fileID: 0}
 --- !u!65 &2046727920
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51041,7 +51732,7 @@ MonoBehaviour:
   wallObj: {fileID: 5909646565427898388}
   LineaSelf: {fileID: 8637698256131982291}
   countdownText: {fileID: 1660861447}
-  objDestroyed:
+  _objDestroyed:
     _value: 0
   destroy: {fileID: 1802408590}
   audioM: {fileID: 1139148217}
@@ -51204,4 +51895,3 @@ SceneRoots:
   - {fileID: 348275726}
   - {fileID: 1476386147}
   - {fileID: 1757499288}
-  - {fileID: 1262745146}

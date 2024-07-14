@@ -1,22 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Fusion.Sockets;
 using Fusion;
-using System;
+using Fusion.Sockets;
 
 public class CanvasFinal : MonoBehaviour
 {
-    public void exitGame(NetworkRunner runner)
+    private NetworkRunner networkRunner;
+
+    private void Awake()
     {
-        Application.Quit();
-        runner.Shutdown();
+        networkRunner = FindObjectOfType<NetworkRunner>();
     }
 
-    public void goToMainMenu(NetworkRunner runner)
+    public void exitGame()
     {
-        runner.Shutdown();
+        Application.Quit();
+    }
+
+    public void goToMainMenu()
+    {
+        if (networkRunner != null)
+        {
+            networkRunner.Shutdown();
+        }
         SceneManager.LoadScene("Main Menu");
     }
 }
