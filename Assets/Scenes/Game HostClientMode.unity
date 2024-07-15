@@ -35691,8 +35691,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1806512038}
-  - component: {fileID: 1806512037}
-  - component: {fileID: 1806512039}
   m_Layer: 0
   m_Name: PisosFalsos
   m_TagString: Untagged
@@ -35700,34 +35698,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1806512037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806512036}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e45521b912dae4ab610fa6bb0e8a1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
-  pair1:
-  - {fileID: 1046390714}
-  - {fileID: 1853076923}
-  pair2:
-  - {fileID: 541574206}
-  - {fileID: 1344210787}
-  pair3:
-  - {fileID: 875338292}
-  - {fileID: 1543659293}
-  pair4:
-  - {fileID: 1390696858}
-  - {fileID: 1354144813}
-  pair5:
-  - {fileID: 1464328244}
-  - {fileID: 1611517114}
 --- !u!4 &1806512038
 Transform:
   m_ObjectHideFlags: 0
@@ -35753,40 +35723,6 @@ Transform:
   - {fileID: 1611517113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1806512039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806512036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectInterest: 1
-  DefaultInterestGroups: []
-  DestroyWhenStateAuthorityLeaves: 0
-  AllowStateAuthorityOverride: 1
-  AoiPositionSource: {fileID: 0}
-  Flags: 2561
-  NetworkGuid:
-    RawGuidValue: 2ee987d1b3cc402abda514ffe581cd07
-  NestedObjects:
-  - {fileID: 1046390714}
-  - {fileID: 1853076923}
-  - {fileID: 541574206}
-  - {fileID: 1344210787}
-  - {fileID: 875338292}
-  - {fileID: 1543659293}
-  - {fileID: 1390696858}
-  - {fileID: 1354144813}
-  - {fileID: 1464328244}
-  - {fileID: 1611517114}
-  NetworkedBehaviours:
-  - {fileID: 1806512037}
-  SimulationBehaviours: []
 --- !u!1 &1806676779
 GameObject:
   m_ObjectHideFlags: 0
@@ -42077,7 +42013,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4c9d4c09e4ed36444a45a6848afa5dac, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2728374568844861379, guid: 585d400a1a7464745aa5e76287708aeb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
