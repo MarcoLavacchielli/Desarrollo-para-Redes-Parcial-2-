@@ -3261,7 +3261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4707b551af7e0fa40bb7924a5695cfe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideToSideSpeed: 1.75
+  sideToSideSpeed: 1.5
   sideToSideRange: 7
   forwardSpeed: 0
   lineaDeSalida: {fileID: 0}
@@ -32866,7 +32866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4707b551af7e0fa40bb7924a5695cfe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideToSideSpeed: 1.5
+  sideToSideSpeed: 1.25
   sideToSideRange: 5
   forwardSpeed: 0
   lineaDeSalida: {fileID: 0}
