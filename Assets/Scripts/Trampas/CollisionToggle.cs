@@ -32,7 +32,6 @@ public class CollisionToggle : NetworkBehaviour
 
         if (collider1 == null || collider2 == null)
         {
-            Debug.LogError("Uno o ambos NetworkObjects no tienen Collider.");
             return;
         }
 
