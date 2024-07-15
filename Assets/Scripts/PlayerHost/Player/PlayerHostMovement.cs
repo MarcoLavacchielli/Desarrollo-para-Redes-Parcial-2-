@@ -323,6 +323,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     void TurnOnBoostParticleSystem()
     {
         boostPs.Play();
+        audioM.PlaySFX(6);
     }
 
     private void AttackFinished()
