@@ -92,7 +92,6 @@ public class LineaDeSalida : NetworkBehaviour
 
     public static void OnCountdownChanged(Changed<LineaDeSalida> changed)
     {
-        // Cuando el estado de countingDown cambia, sincronizamos el texto para todos los clientes
         changed.Behaviour.SyncCountdownText();
     }
 

@@ -10,6 +10,7 @@ public class CanvasFinal : MonoBehaviour
     private void Awake()
     {
         networkRunner = FindObjectOfType<NetworkRunner>();
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void exitGame()

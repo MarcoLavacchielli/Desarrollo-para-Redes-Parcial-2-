@@ -7,7 +7,7 @@ public class NickNameHandler : MonoBehaviour
     public static NickNameHandler Instance;
 
     [SerializeField] NickNameItem _nickNamePrefab;
-    [SerializeField] Camera _camera; // Añadido para referenciar la cámara
+    [SerializeField] Camera _camera; 
 
     List<NickNameItem> _allNickNames = new List<NickNameItem>();
 
@@ -22,7 +22,7 @@ public class NickNameHandler : MonoBehaviour
         var newNickName = Instantiate(_nickNamePrefab, transform);
         _allNickNames.Add(newNickName);
 
-        newNickName.SetOwner(owner.transform, _camera); // Pasar la cámara al NickNameItem
+        newNickName.SetOwner(owner.transform, _camera); 
 
         owner.OnPlayerDespawn += () =>
         {

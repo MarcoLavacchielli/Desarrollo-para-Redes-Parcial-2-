@@ -37,8 +37,6 @@ public class Dispenser : MonoBehaviour
             StartCoroutine(MoveForward(spawnedObject));
             Destroy(spawnedObject, timeDestroy);
         }
-
-        // Optionally, you can set isSpawning to false if you want to stop spawning under certain conditions
     }
 
     private IEnumerator MoveForward(GameObject obj)

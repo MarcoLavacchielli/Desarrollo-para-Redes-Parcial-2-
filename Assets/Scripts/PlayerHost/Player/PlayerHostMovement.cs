@@ -404,7 +404,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
             boosteanding = true;
             UpdateCapsuleText();
             SetSpeedMultiplier(2f);
-            isBoosting = true; // Actualiza el estado de boost
+            isBoosting = true;
             StartCoroutine(ResetBoost());
         }
     }
@@ -418,7 +418,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     {
         yield return new WaitForSeconds(boostTime);
         ResetSpeedMultiplier();
-        isBoosting = false; // Restablece el estado de boost
+        isBoosting = false;
         boosteanding = false;
     }
 
@@ -429,7 +429,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         isStun = true;
         float originalSpeed = maxSpeed;
         maxSpeed = 0f;
-        stunPs.Play(); // Play particle system
+        stunPs.Play(); 
         yield return new WaitForSeconds(stunDuration);
         maxSpeed = originalSpeed;
         isStunned = false;
