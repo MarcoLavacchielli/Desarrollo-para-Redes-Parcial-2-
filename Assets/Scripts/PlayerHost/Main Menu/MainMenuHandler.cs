@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-//using TMPro.EditorUtilities;
 
 public class MainMenuHandler : MonoBehaviour
 {
     [Header("NetworkHostHandler"), SerializeField] NetworkHostHandler _networkHostHandler;
 
-    [Space(25),Header("Panels"), SerializeField] GameObject _joinLobbyPanel;
-    [SerializeField] GameObject _statusPanel, _sessionBrowserPanel, _hostGamePanel;
+    [Space(25), Header("Panels"), SerializeField] GameObject _joinLobbyPanel;
+    [SerializeField] GameObject _statusPanel, _sessionBrowserPanel, _hostGamePanel, _settingsPanel, _creditsPanel, _easterEggPanel;
 
     [Space(25), Header("Buttons"), SerializeField] Button _joinLobbyButton;
-    [SerializeField] Button  _hostGamePanelButton, _hostGameButton;
+    [SerializeField] Button _hostGamePanelButton, _hostGameButton;
 
-    [Space(25), Header("Input Field"),SerializeField] TMP_InputField _sessionNameField;
+    [Space(25), Header("Input Field"), SerializeField] TMP_InputField _sessionNameField;
     [SerializeField] TMP_InputField _nickNameField;
 
     [Space(25), Header("Text"), SerializeField] TextMeshProUGUI _statusText;
     [SerializeField] string _sceneName;
 
     public AudioManager audioM;
+    private GameObject _currentPanel;
 
     private void Awake()
     {
@@ -29,6 +29,7 @@ public class MainMenuHandler : MonoBehaviour
         _statusPanel.SetActive(false);
         _sessionBrowserPanel.SetActive(false);
         _hostGamePanel.SetActive(false);
+        _currentPanel = _joinLobbyPanel;
     }
 
     void Start()
@@ -41,6 +42,7 @@ public class MainMenuHandler : MonoBehaviour
         {
             _statusPanel.SetActive(false);
             _sessionBrowserPanel.SetActive(true);
+            _currentPanel = _sessionBrowserPanel;
         };
     }
 
@@ -52,13 +54,14 @@ public class MainMenuHandler : MonoBehaviour
 
         _joinLobbyPanel.SetActive(false);
         _statusPanel.SetActive(true);
+        _currentPanel = _statusPanel;
 
         StartCoroutine(WaitingToJoinLobby());
     }
 
     IEnumerator WaitingToJoinLobby()
     {
-        while(_statusPanel.activeInHierarchy)
+        while (_statusPanel.activeInHierarchy)
         {
             _statusText.text = "Cargando Epicidad.";
             yield return new WaitForSeconds(0.2f);
@@ -73,6 +76,7 @@ public class MainMenuHandler : MonoBehaviour
     {
         _sessionBrowserPanel.SetActive(false);
         _hostGamePanel.SetActive(true);
+        _currentPanel = _hostGamePanel;
     }
 
     void HostGame()
@@ -83,5 +87,35 @@ public class MainMenuHandler : MonoBehaviour
     public void ButtonClicked()
     {
         audioM.PlaySFX(0);
+    }
+
+    public void SettingGame()
+    {
+        _currentPanel.SetActive(false);
+        _settingsPanel.SetActive(true);
+        _currentPanel = _settingsPanel;
+    }
+
+    public void CreditGame()
+    {
+        _currentPanel.SetActive(false);
+        _creditsPanel.SetActive(true);
+        _currentPanel = _creditsPanel;
+    }
+    public void EasterGame()
+    {
+        _creditsPanel.SetActive(false);
+        _easterEggPanel.SetActive(true);
+        _currentPanel = _easterEggPanel;
+    }
+
+    public void GoBack()
+    {
+        if (_currentPanel != null)
+        {
+            _currentPanel.SetActive(false);
+        }
+        _joinLobbyPanel.SetActive(true);
+        _currentPanel = _joinLobbyPanel;
     }
 }

@@ -10237,7 +10237,6 @@ GameObject:
   - component: {fileID: 541574204}
   - component: {fileID: 541574203}
   - component: {fileID: 541574202}
-  - component: {fileID: 541574206}
   m_Layer: 0
   m_Name: Pisos elevados (11)
   m_TagString: Untagged
@@ -10260,7 +10259,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -10332,29 +10331,6 @@ Transform:
   - {fileID: 1649865785}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &541574206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541574201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectInterest: 1
-  DefaultInterestGroups: []
-  DestroyWhenStateAuthorityLeaves: 0
-  AllowStateAuthorityOverride: 1
-  AoiPositionSource: {fileID: 0}
-  Flags: 2561
-  NetworkGuid:
-    RawGuidValue: 590078bcf00246bb9c3bd0eb2b1b9682
-  NestedObjects: []
-  NetworkedBehaviours: []
-  SimulationBehaviours: []
 --- !u!1001 &542447472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16081,7 +16057,6 @@ GameObject:
   - component: {fileID: 875338290}
   - component: {fileID: 875338289}
   - component: {fileID: 875338288}
-  - component: {fileID: 875338292}
   m_Layer: 0
   m_Name: Pisos elevados (13)
   m_TagString: Untagged
@@ -16176,29 +16151,6 @@ Transform:
   - {fileID: 356241202}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &875338292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875338287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectInterest: 1
-  DefaultInterestGroups: []
-  DestroyWhenStateAuthorityLeaves: 0
-  AllowStateAuthorityOverride: 1
-  AoiPositionSource: {fileID: 0}
-  Flags: 2561
-  NetworkGuid:
-    RawGuidValue: e9e75365e7f74def9b758afccccd7bc5
-  NestedObjects: []
-  NetworkedBehaviours: []
-  SimulationBehaviours: []
 --- !u!1001 &878841296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19447,7 +19399,6 @@ GameObject:
   - component: {fileID: 1046390712}
   - component: {fileID: 1046390711}
   - component: {fileID: 1046390710}
-  - component: {fileID: 1046390714}
   m_Layer: 0
   m_Name: Pisos elevados (9)
   m_TagString: Untagged
@@ -19470,7 +19421,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -19542,29 +19493,6 @@ Transform:
   - {fileID: 917065896}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1046390714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046390709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectInterest: 1
-  DefaultInterestGroups: []
-  DestroyWhenStateAuthorityLeaves: 0
-  AllowStateAuthorityOverride: 1
-  AoiPositionSource: {fileID: 0}
-  Flags: 2561
-  NetworkGuid:
-    RawGuidValue: 1eae408ca51e440c958912aa01e9d985
-  NestedObjects: []
-  NetworkedBehaviours: []
-  SimulationBehaviours: []
 --- !u!1001 &1046461354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26012,7 +25940,6 @@ GameObject:
   - component: {fileID: 1344210785}
   - component: {fileID: 1344210784}
   - component: {fileID: 1344210783}
-  - component: {fileID: 1344210787}
   m_Layer: 0
   m_Name: Pisos elevados (12)
   m_TagString: Untagged
@@ -26107,29 +26034,6 @@ Transform:
   - {fileID: 1639223609}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1344210787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344210782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectInterest: 1
-  DefaultInterestGroups: []
-  DestroyWhenStateAuthorityLeaves: 0
-  AllowStateAuthorityOverride: 1
-  AoiPositionSource: {fileID: 0}
-  Flags: 2561
-  NetworkGuid:
-    RawGuidValue: 5353f7e1db0240749168d9b6cba33c0a
-  NestedObjects: []
-  NetworkedBehaviours: []
-  SimulationBehaviours: []
 --- !u!1 &1354144808
 GameObject:
   m_ObjectHideFlags: 0
@@ -26142,7 +26046,6 @@ GameObject:
   - component: {fileID: 1354144811}
   - component: {fileID: 1354144810}
   - component: {fileID: 1354144809}
-  - component: {fileID: 1354144813}
   m_Layer: 0
   m_Name: Pisos elevados (15)
   m_TagString: Untagged
@@ -26237,29 +26140,6 @@ Transform:
   - {fileID: 1325887370}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1354144813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354144808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectInterest: 1
-  DefaultInterestGroups: []
-  DestroyWhenStateAuthorityLeaves: 0
-  AllowStateAuthorityOverride: 1
-  AoiPositionSource: {fileID: 0}
-  Flags: 2561
-  NetworkGuid:
-    RawGuidValue: 95771b8910174dabbdcabbd324aa2ce3
-  NestedObjects: []
-  NetworkedBehaviours: []
-  SimulationBehaviours: []
 --- !u!1001 &1355889215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27197,7 +27077,6 @@ GameObject:
   - component: {fileID: 1390696856}
   - component: {fileID: 1390696855}
   - component: {fileID: 1390696854}
-  - component: {fileID: 1390696858}
   m_Layer: 0
   m_Name: Pisos elevados (16)
   m_TagString: Untagged
@@ -27220,7 +27099,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -27292,29 +27171,6 @@ Transform:
   - {fileID: 2123823}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1390696858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390696853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectInterest: 1
-  DefaultInterestGroups: []
-  DestroyWhenStateAuthorityLeaves: 0
-  AllowStateAuthorityOverride: 1
-  AoiPositionSource: {fileID: 0}
-  Flags: 2561
-  NetworkGuid:
-    RawGuidValue: 55a26416193e45e99974bf4d4e254804
-  NestedObjects: []
-  NetworkedBehaviours: []
-  SimulationBehaviours: []
 --- !u!1 &1391932367
 GameObject:
   m_ObjectHideFlags: 0
@@ -28955,7 +28811,6 @@ GameObject:
   - component: {fileID: 1464328242}
   - component: {fileID: 1464328241}
   - component: {fileID: 1464328240}
-  - component: {fileID: 1464328244}
   m_Layer: 0
   m_Name: Pisos elevados (17)
   m_TagString: Untagged
@@ -29050,29 +28905,6 @@ Transform:
   - {fileID: 1011182401}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1464328244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464328239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectInterest: 1
-  DefaultInterestGroups: []
-  DestroyWhenStateAuthorityLeaves: 0
-  AllowStateAuthorityOverride: 1
-  AoiPositionSource: {fileID: 0}
-  Flags: 2561
-  NetworkGuid:
-    RawGuidValue: f739df31075a4a5d8e89d7962004e741
-  NestedObjects: []
-  NetworkedBehaviours: []
-  SimulationBehaviours: []
 --- !u!1 &1464335316
 GameObject:
   m_ObjectHideFlags: 0
@@ -31056,7 +30888,6 @@ GameObject:
   - component: {fileID: 1543659291}
   - component: {fileID: 1543659290}
   - component: {fileID: 1543659289}
-  - component: {fileID: 1543659293}
   m_Layer: 0
   m_Name: Pisos elevados (14)
   m_TagString: Untagged
@@ -31079,7 +30910,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -31151,29 +30982,6 @@ Transform:
   - {fileID: 36944733}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1543659293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543659288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectInterest: 1
-  DefaultInterestGroups: []
-  DestroyWhenStateAuthorityLeaves: 0
-  AllowStateAuthorityOverride: 1
-  AoiPositionSource: {fileID: 0}
-  Flags: 2561
-  NetworkGuid:
-    RawGuidValue: c07f879d99cb4f3f9b2982961d8d6cd4
-  NestedObjects: []
-  NetworkedBehaviours: []
-  SimulationBehaviours: []
 --- !u!4 &1557623571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 551336802735321631, guid: 6aedd8862f5b4ac49a6acf18e2014a7d, type: 3}
@@ -31848,7 +31656,6 @@ GameObject:
   - component: {fileID: 1611517112}
   - component: {fileID: 1611517111}
   - component: {fileID: 1611517110}
-  - component: {fileID: 1611517114}
   m_Layer: 0
   m_Name: Pisos elevados (18)
   m_TagString: Untagged
@@ -31871,7 +31678,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -31943,29 +31750,6 @@ Transform:
   - {fileID: 16806437}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1611517114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611517109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectInterest: 1
-  DefaultInterestGroups: []
-  DestroyWhenStateAuthorityLeaves: 0
-  AllowStateAuthorityOverride: 1
-  AoiPositionSource: {fileID: 0}
-  Flags: 2561
-  NetworkGuid:
-    RawGuidValue: ab52e95448d0489781f9d40d5bd6d54d
-  NestedObjects: []
-  NetworkedBehaviours: []
-  SimulationBehaviours: []
 --- !u!1001 &1612948126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35815,6 +35599,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1806512038}
+  - component: {fileID: 1806512039}
   m_Layer: 0
   m_Name: PisosFalsos
   m_TagString: Untagged
@@ -35847,6 +35632,33 @@ Transform:
   - {fileID: 1611517113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1806512039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806512036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e45521b912dae4ab610fa6bb0e8a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pair1:
+  - {fileID: 1046390709}
+  - {fileID: 1853076918}
+  pair2:
+  - {fileID: 541574201}
+  - {fileID: 1344210782}
+  pair3:
+  - {fileID: 875338287}
+  - {fileID: 1543659288}
+  pair4:
+  - {fileID: 1390696853}
+  - {fileID: 1354144808}
+  pair5:
+  - {fileID: 1464328239}
+  - {fileID: 1611517109}
 --- !u!1 &1806676779
 GameObject:
   m_ObjectHideFlags: 0
@@ -37485,7 +37297,6 @@ GameObject:
   - component: {fileID: 1853076921}
   - component: {fileID: 1853076920}
   - component: {fileID: 1853076919}
-  - component: {fileID: 1853076923}
   m_Layer: 0
   m_Name: Pisos elevados (10)
   m_TagString: Untagged
@@ -37580,29 +37391,6 @@ Transform:
   - {fileID: 2099268214}
   m_Father: {fileID: 1806512038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1853076923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853076918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectInterest: 1
-  DefaultInterestGroups: []
-  DestroyWhenStateAuthorityLeaves: 0
-  AllowStateAuthorityOverride: 1
-  AoiPositionSource: {fileID: 0}
-  Flags: 2561
-  NetworkGuid:
-    RawGuidValue: 19b1524eb7e247c88c14f82137d2f5f1
-  NestedObjects: []
-  NetworkedBehaviours: []
-  SimulationBehaviours: []
 --- !u!1001 &1854500563
 PrefabInstance:
   m_ObjectHideFlags: 0
