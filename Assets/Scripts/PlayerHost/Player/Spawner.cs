@@ -20,8 +20,6 @@ public class Spawner : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnInput(NetworkRunner runner, NetworkInput input)
     {
-        //darle inputs al jugador local
-
         if (!NetworkHostPlayer.Local) return;
 
         if (!_playerInputs) _playerInputs = NetworkHostPlayer.Local.GetComponent<LocalPlayerInputs>();
@@ -30,7 +28,6 @@ public class Spawner : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnDisconnectedFromServer(NetworkRunner runner) 
     {
-        //Marco, aca no me funcion lo de la derrota, tiro error
         runner.Shutdown();
     }
 

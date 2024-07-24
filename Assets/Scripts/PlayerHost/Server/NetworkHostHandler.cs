@@ -38,7 +38,7 @@ public class NetworkHostHandler : MonoBehaviour, INetworkRunnerCallbacks
         }
         else
         {
-            //Salta error de conexion, volve a intentarlo
+
         }
     }
     #endregion

@@ -31,8 +31,6 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-
-
         }
 
         else
@@ -64,7 +62,6 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(int index)
     {
-        //Sound s = System.Array.Find(sfxSounds, x => x.name == name);
 
         if (sfxSource[index] == null)
         {
@@ -77,17 +74,6 @@ public class AudioManager : MonoBehaviour
         }
 
     }
-
-    /*public void ToggleMusic()
-    {
-        musicSource.mute = !musicSource.mute;
-
-    }
-
-    public void ToggleSFX()
-    {
-        sfxSource.mute = !sfxSource.mute;
-    }*/
 
     public void MusicVolume(float volume)
     {
@@ -138,7 +124,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySFXLoop(int index) // Nuevo método para reproducir sonido en bucle
+    public void PlaySFXLoop(int index)
     {
 
 

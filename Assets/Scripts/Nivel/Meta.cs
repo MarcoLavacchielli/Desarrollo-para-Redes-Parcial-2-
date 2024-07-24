@@ -13,8 +13,6 @@ public class Meta : NetworkBehaviour
     [SerializeField] private bool UnoGano;
     [SerializeField] private bool DosGano;
 
-    //[SerializeField] GameObject victoryScreen, defeatScreen;
-
     [SerializeField] private bool termino = false;
 
     public void AddPlayerModel(PlayerHostMovement playerModel)
@@ -60,7 +58,6 @@ public class Meta : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //firstPlayerModel = playerScreensList[0];
 
         if (other.GetComponent<PlayerHostMovement>() == playerScreensList[0])
         {

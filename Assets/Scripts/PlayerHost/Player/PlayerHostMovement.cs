@@ -17,7 +17,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     private float originalCrouchSpeed;
     private float originalSlideSpeed;
 
-    [SerializeField] private float originalSlideForce; // Fuerza del slide original
+    [SerializeField] private float originalSlideForce;
 
     AudioManager audioM;
 
@@ -48,7 +48,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     [Header("Slider")]
     public float maxSlideTime;
     public float slideSpeed;
-    public float slideForce = 10.0f; // Fuerza del slide
+    public float slideForce = 10.0f;
     private bool _isSliding = false;
     private float _slideTimer = 0f;
     [SerializeField] private bool _canSlide = true;
@@ -145,7 +145,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
     {
         if (isStunned)
         {
-            return; // Ignorar los inputs si está aturdido
+            return;
         }
 
         if (_inputs.isJumpPressed)
@@ -348,7 +348,7 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             PlayerHostMovement enemyPlayer = hitObject.GetComponent<PlayerHostMovement>();
 
-            if (enemyPlayer != null && enemyPlayer != this) // Verificar que no sea el mismo jugador
+            if (enemyPlayer != null && enemyPlayer != this)
             {
                 Debug.Log("Stunning player: " + hitObject.name);
                 enemyPlayer.Stun();
