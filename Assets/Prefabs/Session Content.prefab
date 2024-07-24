@@ -399,7 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3683272224547666717}
   - component: {fileID: 6418779273176385075}
-  - component: {fileID: 2850110229161822584}
+  - component: {fileID: 1362665664998293750}
   m_Layer: 5
   m_Name: Session Content
   m_TagString: Untagged
@@ -437,7 +437,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7532569048597371219}
   m_CullTransparentMesh: 1
---- !u!114 &2850110229161822584
+--- !u!114 &1362665664998293750
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7532569048597371219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52fbdc53787a3054d9b59c22d9ae5743, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ec2a884dc5f93145936d92584c46186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _sessionName: {fileID: 8118510975415443566}

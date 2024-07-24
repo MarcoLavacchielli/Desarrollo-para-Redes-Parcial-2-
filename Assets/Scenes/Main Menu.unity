@@ -1319,7 +1319,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 521603679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 680606900e212cd489bdab3f47bf78c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 087c85e6c0c1d194aa44dfb6b3c68da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _runnerPrefab: {fileID: 7101588248882076705, guid: 7441988a65760574f9abc38dcac52f2a, type: 3}
@@ -6323,7 +6323,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1795890489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 363e6cf9598cd6745a95821d93b7a992, type: 3}
+  m_Script: {fileID: 11500000, guid: 6407989821a4d3d49949f2ae486812c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _networkHostHandler: {fileID: 521603680}
