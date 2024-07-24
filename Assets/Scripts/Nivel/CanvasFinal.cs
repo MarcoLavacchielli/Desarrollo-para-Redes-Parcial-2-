@@ -11,6 +11,7 @@ public class CanvasFinal : MonoBehaviour
     {
         networkRunner = FindObjectOfType<NetworkRunner>();
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void exitGame()
