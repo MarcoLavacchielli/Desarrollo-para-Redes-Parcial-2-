@@ -10,8 +10,8 @@ public class CanvasFinal : MonoBehaviour
     private void Awake()
     {
         networkRunner = FindObjectOfType<NetworkRunner>();
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
     }
 
     public void exitGame()

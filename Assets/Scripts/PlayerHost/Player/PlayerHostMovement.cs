@@ -469,6 +469,8 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             victoryScreen.SetActive(true);
             audioM.PlaySFX(3);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         gano = true;
     }
@@ -479,6 +481,8 @@ public class PlayerHostMovement : NetworkCharacterControllerPrototype
         {
             defeatScreen.SetActive(true);
             audioM.PlaySFX(4);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         perdio = true;
     }
